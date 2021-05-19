@@ -1,0 +1,446 @@
+# /home/elinorpe/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p /mnt/c//Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt -l 9 -a HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801
+# Wed May 19 10:42:13 2021
+# User: elinorpe
+# PWD : /mnt/c/Users/Elinor/PycharmProjects/pythonProject1
+# Host: Linux DESKTOP-L1FL5IS 5.4.72-microsoft-standard-WSL2 x86_64
+# -p       1                    Use peptide input
+# -l       9                    Peptide length [8-11] (multiple length with ,)
+# -a       HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801 MHC allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/elinorpe/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /home/elinorpe/netMHCpan-4.1/tmp/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with MHC pseudo sequences
+#	[-hlaseq filename]                        File with full length MHC sequences
+#	[-a line]            HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801 MHC allele
+#	[-f filename]                             File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          9                    Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output (%rank) [<0 print all]
+#	[-thrfmt filename]   /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /home/elinorpe/netMHCpan-4.1/tmp/netMHCpanY8Y5qB
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-A0101 : Distance to training data  0.000 (using nearest neighbor HLA-A01:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0101      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.2324830    0.671 <= WB
+   1  HLA-A*0101      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0142050    3.988
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0101. Number of high binders 0. Number of weak binders 1. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0201 : Distance to training data  0.000 (using nearest neighbor HLA-A02:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0201      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0000300   58.636
+   1  HLA-A*0201      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0000410   54.000
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0201. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0203 : Distance to training data  0.000 (using nearest neighbor HLA-A02:03)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0203      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0000190   67.143
+   1  HLA-A*0203      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0000250   63.333
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0203. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0206 : Distance to training data  0.000 (using nearest neighbor HLA-A02:06)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0206      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0001080   52.625
+   1  HLA-A*0206      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0000860   55.577
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0206. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0301 : Distance to training data  0.000 (using nearest neighbor HLA-A03:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0301      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0004420   19.193
+   1  HLA-A*0301      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0004520   19.018
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A1101 : Distance to training data  0.000 (using nearest neighbor HLA-A11:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*1101      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0015930    9.802
+   1  HLA-A*1101      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0004690   14.853
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*1101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2301 : Distance to training data  0.000 (using nearest neighbor HLA-A23:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2301      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0006270   13.681
+   1  HLA-A*2301      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0034600    6.695
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2402 : Distance to training data  0.000 (using nearest neighbor HLA-A24:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2402      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0006830   12.785
+   1  HLA-A*2402      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0020920    8.124
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2402. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2601 : Distance to training data  0.000 (using nearest neighbor HLA-A26:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2601      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.4207980    0.224 <= SB
+   1  HLA-A*2601      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0217190    2.981
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2601. Number of high binders 1. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3001 : Distance to training data  0.000 (using nearest neighbor HLA-A30:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3001      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0006490   39.860
+   1  HLA-A*3001      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0018630   25.742
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3001. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3002 : Distance to training data  0.000 (using nearest neighbor HLA-A30:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3002      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0916750    2.113
+   1  HLA-A*3002      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0885090    2.172
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3002. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3101 : Distance to training data  0.000 (using nearest neighbor HLA-A31:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3101      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0007170   20.778
+   1  HLA-A*3101      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0006020   22.203
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3201 : Distance to training data  0.000 (using nearest neighbor HLA-A32:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3201      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0020430   10.992
+   1  HLA-A*3201      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0008090   16.105
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3201. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3301 : Distance to training data  0.000 (using nearest neighbor HLA-A33:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3301      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0139350    5.141
+   1  HLA-A*3301      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0045740    8.332
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A6801 : Distance to training data  0.000 (using nearest neighbor HLA-A68:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*6801      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.1411790    2.450
+   1  HLA-A*6801      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0024900   13.244
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*6801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A6802 : Distance to training data  0.000 (using nearest neighbor HLA-A68:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*6802      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0092220    7.282
+   1  HLA-A*6802      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0003110   31.071
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*6802. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B0702 : Distance to training data  0.000 (using nearest neighbor HLA-B07:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*0702      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0000880   40.714
+   1  HLA-B*0702      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0000230   62.143
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*0702. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B0801 : Distance to training data  0.000 (using nearest neighbor HLA-B08:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*0801      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0028950   15.323
+   1  HLA-B*0801      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0023510   16.897
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*0801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B1501 : Distance to training data  0.000 (using nearest neighbor HLA-B15:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*1501      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0098230    7.302
+   1  HLA-B*1501      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0027660   12.351
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*1501. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B3501 : Distance to training data  0.000 (using nearest neighbor HLA-B35:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*3501      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.5402000    0.343 <= SB
+   1  HLA-B*3501      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0038910    8.025
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*3501. Number of high binders 1. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4001 : Distance to training data  0.000 (using nearest neighbor HLA-B40:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4001      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0001500   20.895
+   1  HLA-B*4001      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0001280   22.333
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4001. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4403 : Distance to training data  0.000 (using nearest neighbor HLA-B44:03)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4403      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0048820    5.301
+   1  HLA-B*4403      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0103490    3.745
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4403. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4402 : Distance to training data  0.000 (using nearest neighbor HLA-B44:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4402      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0050620    4.965
+   1  HLA-B*4402      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0061620    4.489
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4402. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5101 : Distance to training data  0.000 (using nearest neighbor HLA-B51:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5101      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0278960    4.709
+   1  HLA-B*5101      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0002850   38.478
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5301 : Distance to training data  0.000 (using nearest neighbor HLA-B53:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5301      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.1677870    0.830 <= WB
+   1  HLA-B*5301      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0014540   11.022
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5301. Number of high binders 0. Number of weak binders 1. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5701 : Distance to training data  0.000 (using nearest neighbor HLA-B57:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5701      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0396080    4.652
+   1  HLA-B*5701      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0053150   11.948
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5701. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5801 : Distance to training data  0.000 (using nearest neighbor HLA-B58:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5801      EATINYYRY EATINYYRY  0  0  0  0  0    EATINYYRY         PEPLIST 0.0302300    3.676
+   1  HLA-B*5801      ERTINYYRY ERTINYYRY  0  0  0  0  0    ERTINYYRY         PEPLIST 0.0019690   13.452
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
