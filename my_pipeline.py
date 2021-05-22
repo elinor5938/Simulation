@@ -57,6 +57,7 @@ def mutation_creator(peptide):
 
 
 def send_pep_to_pred(peptide):
+    all_peps_sent_to_prediction = []
     mutated_list=[]
     open('/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt', 'w').close() # clearing pred input file
     input_file='/mnt/c//Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt'
@@ -90,9 +91,11 @@ def send_pep_to_pred(peptide):
 def simulation(df,function,col_contains_data):
     probabilty_res_MCMC = ["First"]
     all_data_prob = ["First"]
+    Delta=["First"]
     """gets df,function, and the column that contains the data with the score im interested to check ,
     insert the data of each row into the column and return df and flag considering the simulation result"""
     delta=np.diff(df[col_contains_data]) #Calculating the delta between two values in the columns
+    Delta.append(delta)
     prob_res=params["probability_function"](delta)
     params["seed"]
     random_toss=random.random()
@@ -108,16 +111,15 @@ def simulation(df,function,col_contains_data):
 
     df["probabilty_res_MCMC"]=probabilty_res_MCMC
     df["all_data_prob"] =all_data_prob
-
+    df["delta"]=Delta
     return df, flag
 
 #
-all_peps_sent_to_prediction = []
 my_peptide= "CDTINCERY"
 def simulation_process(peptide,column):
     """gets a peptide and column to calculate the simulation function and return df with all the result """
     appended_data=[]
-    while len (all_peps_sent_to_prediction)<30: #here i decide the stop condition for this process
+    while len (appended_data)<500 :# there i decide the stop condition for this process
             df1=pd.DataFrame()
             df1=send_pep_to_pred(peptide)
             if simulation(df1,params["probability_function"],column)[1]=="True":
@@ -134,3 +136,5 @@ def simulation_process(peptide,column):
 
 
 simulation_result=simulation_process(my_peptide,"median")
+#simulation_result.to_csv("simulation_result_example.csv")
+
