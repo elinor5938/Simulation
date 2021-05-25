@@ -62,7 +62,7 @@ def df_creator(path):
     ## adding column of interst
     data_hla_as_col["average"]= data_hla_as_col.loc[:,list_of_hla].mean(axis=1).round()
     data_hla_as_col["min_rank"]= data_hla_as_col.loc[:,list_of_hla].min(axis=1)
-    data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
+    #data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
     data_hla_as_col = data_hla_as_col.astype(float)
     data_hla_as_col["av_of_total_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<float(2)].mean(axis=1)
 
@@ -78,32 +78,32 @@ def df_creator(path):
     #
     #
     # # %%
-    def binding_feedback_func(x):
-        """get values and returns the feedback regarding the binding"""
-        if x <= 0.5:
-            return 'SB'
-        elif 0.5<x<=2:
-            return 'WB'
-        else:
-            return 'NB'
-
+    # def binding_feedback_func(x):
+    #     """get values and returns the feedback regarding the binding"""
+    #     if x <= 0.5:
+    #         return 'SB'
+    #     elif 0.5<x<=2:
+    #         return 'WB'
+    #     else:
+    #         return 'NB'
+    #
 
     #
     #
     # # %%
     # #adding the cumber of each peptide is sb,nb,wb as columns
-    nb=[]
-    wb=[]
-    sb=[]
-    for ind, row in data_hla_as_col.iterrows():
-        tmp=row.loc[list_of_hla].apply(binding_feedback_func).str
-        nb.append(tmp.contains('NB', regex=False).sum())
-        sb.append(tmp.contains('SB', regex=False).sum())
-        wb.append(tmp.contains('WB', regex=False).sum())
-
-    data_hla_as_col["NB"]=nb
-    data_hla_as_col["SB"]=sb
-    data_hla_as_col["WB"]=wb
+    # nb=[]
+    # wb=[]
+    # sb=[]
+    # for ind, row in data_hla_as_col.iterrows():
+    #     tmp=row.loc[list_of_hla].apply(binding_feedback_func).str
+    #     nb.append(tmp.contains('NB', regex=False).sum())
+    #     sb.append(tmp.contains('SB', regex=False).sum())
+    #     wb.append(tmp.contains('WB', regex=False).sum())
+    #
+    # data_hla_as_col["NB"]=nb
+    # data_hla_as_col["SB"]=sb
+    # data_hla_as_col["WB"]=wb
 
 
     supertype_classification={"A01":["HLA-A*0101","HLA-A*2601","HLA-A*3002","HLA-A*3201"],"A02":["HLA-A*0201","HLA-A*0203" ,"HLA-A*0206"],"A03":["HLA-A*1101" ,"HLA-A*3101","HLA-A*0301","HLA-A*3301"],"B07":["HLA-B*0702","HLA-B*3501","HLA-B*5101","HLA-B*5301"],"B08": ["HLA-B*0801"],"B44":["HLA-B*4403", "HLA-B*4402" ,"HLA-B*4001"],"B58":["HLA-B*5801","HLA-B*5701"],"B62":["HLA-B*1501"],"A24":["HLA-A*2301" ,"HLA-A*2402"],"A01A03":[ "HLA-A*6801","HLA-A*6802"],"A03A02":["HLA-A*3001"]}
@@ -172,7 +172,7 @@ def df_creator(path):
 
 
     if data_hla_as_col.iloc[0].name==data_hla_as_col.iloc[1].name: # if both peptides are the same
-        data_hla_as_col["total_super_binders"] = (sb_supertypes[0] +wb_supertypes[0])*len(data_hla_as_col)
+        data_hla_as_col["total_super_binders"] = [sb_supertypes[0] +wb_supertypes[0]]*len(data_hla_as_col)
         data_hla_as_col["sb_supertypes"]=sb_supertypes*len(data_hla_as_col)
         print(sb_supertypes)
         print(data_hla_as_col)
@@ -180,7 +180,7 @@ def df_creator(path):
         data_hla_as_col["nb_supertypes"]=nb_supertypes*len(data_hla_as_col)
         data_hla_as_col["sb_super_type_id"] = sb*len(data_hla_as_col)
         data_hla_as_col["wb_super_type_id"] = wb*len(data_hla_as_col)
-        data_hla_as_col["total_binders"]= (data_hla_as_col["SB"] + data_hla_as_col["WB"])*len(data_hla_as_col)
+        #data_hla_as_col["total_binders"]= (data_hla_as_col["SB"] + data_hla_as_col["WB"])*len(data_hla_as_col)
 
     else:
 
@@ -189,8 +189,22 @@ def df_creator(path):
         data_hla_as_col["wb_supertypes"]=wb_supertypes
         data_hla_as_col["sb_super_type_id"]=sb
         data_hla_as_col["wb_super_type_id"]=wb
-        data_hla_as_col["total_binders"]=data_hla_as_col["SB"]+data_hla_as_col["WB"]
+        #data_hla_as_col["total_binders"]=data_hla_as_col["SB"]+data_hla_as_col["WB"]
         data_hla_as_col["total_super_binders"]=data_hla_as_col["sb_supertypes"]+data_hla_as_col["wb_supertypes"]
+
+    hla_freq={'HLA-A*2601': 0.028900876, 'HLA-A*0101': 0.059088435, 'HLA-B*4001': 0.071398528, 'HLA-B*4403': 0.029337539,
+    'HLA-B*0801': 0.039642482, 'HLA-B*5801': 0.035699264, 'HLA-A*0206': 0.0288019, 'HLA-B*4402': 0.02807571,
+    'HLA-A*0203': 0.01598456, 'HLA-A*0201': 0.143465136, 'HLA-A*3201': 0.015440194, 'HLA-B*5101': 0.0446898,
+    'HLA-A*2402': 0.184985401, 'HLA-B*3501': 0.044952681, 'HLA-B*1501': 0.027444795, 'HLA-B*0702': 0.047634069,
+    'HLA-A*3101': 0.03533429, 'HLA-B*5701': 0.012881178, 'HLA-A*0301': 0.048399069, 'HLA-B*5301': 0.019295478,
+    'HLA-A*1101': 0.105062602, 'HLA-A*2301': 0.027119315, 'HLA-A*3301': 0.006383926, 'HLA-A*3002': 0.018706389,
+    'HLA-A*3001': 0.021923096, 'HLA-A*6802': 0.017568169, 'HLA-A*6801': 0.023160292, 'HLA-B*2705': 0.017304938,
+    'HLA-B*3901': 0.013952759}
+
+    for hla in hla_freq.keys():
+        if hla in data_hla_as_col.columns:
+           data_hla_as_col["average"]= data_hla_as_col[hla]*hla_freq[hla]
+
 
 
     return data_hla_as_col

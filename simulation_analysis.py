@@ -52,57 +52,57 @@ def graph_for_intresting_col(df,intresting_col):
 
 #################################################### Analysis ###########################
 
-
-df=simulation_process(my_peptide,"av_of_total_binders")
-df1=simulation_process(my_peptide,"min_rank")
-df2=simulation_process(my_peptide,"median")
-
-df3=simulation_process(my_peptide,"total_super_binders")
-df4=simulation_process(my_peptide,"sb_supertypes")
-df5=simulation_process(my_peptide,"wb_supertypes")
-df6=simulation_process(my_peptide,"nb_supertypes")
+#
+# df=simulation_process(my_peptide,"av_of_total_binders")
+# df1=simulation_process(my_peptide,"min_rank")
+# df2=simulation_process(my_peptide,"median")
+#
+# df3=simulation_process(my_peptide,"total_super_binders")
+# df4=simulation_process(my_peptide,"sb_supertypes")
+# df5=simulation_process(my_peptide,"wb_supertypes")
+# df6=simulation_process(my_peptide,"nb_supertypes")
 df7=simulation_process(my_peptide,"average")
 
 
 df_dict={}
 #dict key is the expirment name and the value is the df
-df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
+#df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
 
-
+df_dict={"average":df7}
 
 
 for expirement in df_dict.keys():
 
-# # first expirement calculating how the av_of_total_binders changing during MCMC
-    expirment_name=expirement+" seed 42"
-    new_path=create_folder(params["main_output_folder"],expirment_name)
-    print(new_path)
-    graph_for_intresting_col(df_dict[expirement],"delta")
-    plt.savefig(str(new_path)+" "+expirment_name+" delta.png",dpi=100)
-    plt.close()
+    # # first expirement calculating how the av_of_total_binders changing during MCMC
+        expirment_name=expirement+" seed 42"
+        new_path=create_folder(params["main_output_folder"],expirment_name)
+        print(new_path)
+        graph_for_intresting_col(df_dict[expirement],"delta")
+        plt.savefig(str(new_path)+" "+expirment_name+" delta.png",dpi=100)
+        plt.close()
 
-# c=delta_graph(i,"probabilty_res_MCMC","all_data_prob")
-    # total_bindes_graph(i,"total_binders")
-    graph_for_intresting_col(df_dict[expirement],"wb_supertypes")
-    plt.savefig(str(new_path)+" "+expirment_name+" wb_supertypes.png",dpi=100)
-    plt.close()
+    # c=delta_graph(i,"probabilty_res_MCMC","all_data_prob")
+        # total_bindes_graph(i,"total_binders")
+        graph_for_intresting_col(df_dict[expirement],"wb_supertypes")
+        plt.savefig(str(new_path)+" "+expirment_name+" wb_supertypes.png",dpi=100)
+        plt.close()
 
 #graph_for_intresting_col(i,"wb_supertypes")
-    graph_for_intresting_col(df_dict[expirement],"sb_supertypes")
-    plt.savefig(str(new_path)+" "+expirment_name+" sb_supertypes.png",dpi=100)
-    plt.close()
+        graph_for_intresting_col(df_dict[expirement],"sb_supertypes")
+        plt.savefig(str(new_path)+" "+expirment_name+" sb_supertypes.png",dpi=100)
+        plt.close()
 
-    graph_for_intresting_col(df_dict[expirement],"nb_supertypes")
-    plt.savefig(str(new_path)+" "+expirment_name+" nb_supertypes.png",dpi=100)
-    plt.close()
+        graph_for_intresting_col(df_dict[expirement],"nb_supertypes")
+        plt.savefig(str(new_path)+" "+expirment_name+" nb_supertypes.png",dpi=100)
+        plt.close()
 
 # i["total_supertypes"]=i["sb_supertypes"]+i["wb_supertypes"]
     # graph_for_intresting_col(i,"total_supertypes")
 
 
-    graph_for_intresting_col(df_dict[expirement],"total_binders")
-    plt.savefig(str(new_path)+" "+expirment_name+" total_super_binders.png",dpi=100)
-    plt.close()
+        graph_for_intresting_col(df_dict[expirement],"total_binders")
+        plt.savefig(str(new_path)+" "+expirment_name+" total_super_binders.png",dpi=100)
+        plt.close()
 
 
 

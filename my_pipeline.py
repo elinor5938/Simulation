@@ -119,7 +119,7 @@ my_peptide= "CDTINCERY"
 def simulation_process(peptide,column):
     """gets a peptide and column to calculate the simulation function and return df with all the result """
     appended_data=[]
-    while len (appended_data)<500 :# there i decide the stop condition for this process
+    while len (appended_data)<1 :# there i decide the stop condition for this process
             df1=pd.DataFrame()
             df1=send_pep_to_pred(peptide)
             if simulation(df1,params["probability_function"],column)[1]=="True":

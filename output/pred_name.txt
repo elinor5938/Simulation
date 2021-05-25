@@ -1,0 +1,446 @@
+# /home/elinorpe/netMHCpan-4.1/Linux_x86_64/bin/netMHCpan -p /mnt/c//Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt -l 9 -a HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801
+# Tue May 25 11:42:21 2021
+# User: elinorpe
+# PWD : /mnt/c/Users/Elinor/PycharmProjects/pythonProject1
+# Host: Linux DESKTOP-L1FL5IS 5.4.72-microsoft-standard-WSL2 x86_64
+# -p       1                    Use peptide input
+# -l       9                    Peptide length [8-11] (multiple length with ,)
+# -a       HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801 MHC allele
+# Command line parameters set to:
+#	[-rdir filename]     /home/elinorpe/netMHCpan-4.1/Linux_x86_64 Home directory for NetMHpan
+#	[-syn filename]      /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/synlist.bin Synaps file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /home/elinorpe/netMHCpan-4.1/tmp/netMHCpanXXXXXX Temporary directory (made with mkdtemp)
+#	[-hlapseudo filename] /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/MHC_pseudo.dat File with MHC pseudo sequences
+#	[-hlaseq filename]                        File with full length MHC sequences
+#	[-a line]            HLA-A0101,HLA-A0201,HLA-A0203,HLA-A0206,HLA-A0301,HLA-A1101,HLA-A2301,HLA-A2402,HLA-A2601,HLA-A3001,HLA-A3002,HLA-A3101,HLA-A3201,HLA-A3301,HLA-A6801,HLA-A6802,HLA-B0702,HLA-B0801,HLA-B1501,HLA-B3501,HLA-B4001,HLA-B4403,HLA-B4402,HLA-B5101,HLA-B5301,HLA-B5701,HLA-B5801 MHC allele
+#	[-f filename]                             File name with input
+#	[-w]                 0                    w option for webface
+#	[-s]                 0                    Sort output on descending affinity
+#	[-p]                 1                    Use peptide input
+#	[-rth float]         0.500000             Rank Threshold for high binding peptides
+#	[-rlt float]         2.000000             Rank Threshold for low binding peptides
+#	[-l string]          9                    Peptide length [8-11] (multiple length with ,)
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetMHCpan_out.xls    Filename for xls dump
+#	[-t float]           -99.900002           Threshold for output (%rank) [<0 print all]
+#	[-thrfmt filename]   /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/threshold/%s.thr.%s Format for threshold filenames
+#	[-expfix]            0                    Exclude prefix from synlist
+#	[-version filename]  /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listMHC]           0                    Print list of alleles included in netMHCpan
+#	[-allname filename]  /home/elinorpe/netMHCpan-4.1/Linux_x86_64/data/allelenames File with print names for alleles
+#	[-BA]                0                    Include Binding affinity prediction
+
+# NetMHCpan version 4.1b
+
+# Tmpdir made /home/elinorpe/netMHCpan-4.1/tmp/netMHCpansCRpOs
+# Input is in PEPTIDE format
+
+# Make EL predictions
+
+HLA-A0101 : Distance to training data  0.000 (using nearest neighbor HLA-A01:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0238420    3.035
+   1  HLA-A*0101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0850910    1.426 <= WB
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0101. Number of high binders 0. Number of weak binders 1. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0201 : Distance to training data  0.000 (using nearest neighbor HLA-A02:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0201      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000030   87.500
+   1  HLA-A*0201      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000240   61.875
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0201. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0203 : Distance to training data  0.000 (using nearest neighbor HLA-A02:03)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0203      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000030   87.500
+   1  HLA-A*0203      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000190   67.143
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0203. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0206 : Distance to training data  0.000 (using nearest neighbor HLA-A02:06)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0206      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000080   84.167
+   1  HLA-A*0206      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000580   61.250
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0206. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A0301 : Distance to training data  0.000 (using nearest neighbor HLA-A03:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*0301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000130   67.500
+   1  HLA-A*0301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001890   26.632
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*0301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A1101 : Distance to training data  0.000 (using nearest neighbor HLA-A11:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*1101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000160   49.000
+   1  HLA-A*1101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0003510   16.419
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*1101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2301 : Distance to training data  0.000 (using nearest neighbor HLA-A23:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000080   58.333
+   1  HLA-A*2301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000440   35.750
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2402 : Distance to training data  0.000 (using nearest neighbor HLA-A24:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2402      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000120   51.250
+   1  HLA-A*2402      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000460   34.250
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2402. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A2601 : Distance to training data  0.000 (using nearest neighbor HLA-A26:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*2601      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0003480   22.763
+   1  HLA-A*2601      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0039020    7.699
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*2601. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3001 : Distance to training data  0.000 (using nearest neighbor HLA-A30:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3001      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000110   94.500
+   1  HLA-A*3001      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000710   75.455
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3001. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3002 : Distance to training data  0.000 (using nearest neighbor HLA-A30:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3002      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0017770   23.129
+   1  HLA-A*3002      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0269100    4.640
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3002. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3101 : Distance to training data  0.000 (using nearest neighbor HLA-A31:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000100   76.667
+   1  HLA-A*3101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000810   45.200
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3201 : Distance to training data  0.000 (using nearest neighbor HLA-A32:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3201      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000320   46.667
+   1  HLA-A*3201      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0004020   21.078
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3201. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A3301 : Distance to training data  0.000 (using nearest neighbor HLA-A33:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*3301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000230   67.857
+   1  HLA-A*3301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001970   32.867
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*3301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A6801 : Distance to training data  0.000 (using nearest neighbor HLA-A68:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*6801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001660   31.706
+   1  HLA-A*6801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0058880    9.933
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*6801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-A6802 : Distance to training data  0.000 (using nearest neighbor HLA-A68:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-A*6802      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000050   81.667
+   1  HLA-A*6802      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000800   47.500
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-A*6802. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B0702 : Distance to training data  0.000 (using nearest neighbor HLA-B07:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*0702      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000140   70.000
+   1  HLA-B*0702      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000310   57.222
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*0702. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B0801 : Distance to training data  0.000 (using nearest neighbor HLA-B08:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*0801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000220   81.429
+   1  HLA-B*0801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000860   59.828
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*0801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B1501 : Distance to training data  0.000 (using nearest neighbor HLA-B15:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*1501      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001140   40.778
+   1  HLA-B*1501      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0064440    8.742
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*1501. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B3501 : Distance to training data  0.000 (using nearest neighbor HLA-B35:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*3501      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0004600   18.456
+   1  HLA-B*3501      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0559030    2.257
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*3501. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4001 : Distance to training data  0.000 (using nearest neighbor HLA-B40:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4001      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000280   38.500
+   1  HLA-B*4001      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000120   50.000
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4001. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4403 : Distance to training data  0.000 (using nearest neighbor HLA-B44:03)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4403      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0022930    7.344
+   1  HLA-B*4403      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001320   23.800
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4403. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B4402 : Distance to training data  0.000 (using nearest neighbor HLA-B44:02)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*4402      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0022290    7.298
+   1  HLA-B*4402      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001940   21.250
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*4402. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5101 : Distance to training data  0.000 (using nearest neighbor HLA-B51:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000680   58.400
+   1  HLA-B*5101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0016610   20.071
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5101. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5301 : Distance to training data  0.000 (using nearest neighbor HLA-B53:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0003340   19.465
+   1  HLA-B*5301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0103440    4.569
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5301. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5701 : Distance to training data  0.000 (using nearest neighbor HLA-B57:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5701      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001630   49.500
+   1  HLA-B*5701      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0122680    8.059
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5701. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
+
+HLA-B5801 : Distance to training data  0.000 (using nearest neighbor HLA-B58:01)
+
+# Rank Threshold for Strong binding peptides   0.500
+# Rank Threshold for Weak binding peptides   2.000
+---------------------------------------------------------------------------------------------------------------------------
+ Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
+---------------------------------------------------------------------------------------------------------------------------
+   1  HLA-B*5801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001720   38.417
+   1  HLA-B*5801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0145980    5.196
+---------------------------------------------------------------------------------------------------------------------------
+
+Protein PEPLIST. Allele HLA-B*5801. Number of high binders 0. Number of weak binders 0. Number of peptides 2
+
+-----------------------------------------------------------------------------------
