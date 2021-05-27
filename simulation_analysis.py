@@ -45,7 +45,7 @@ def graph_for_intresting_col(df,intresting_col):
     ax1.title.set_text('{} number of binders MCMC'.format(str(intresting_col)))
     ax1.set(xlabel='Peptide ', ylabel='{} number of binders MCMC'.format(str(intresting_col)))
 
-    ax2.scatter(df.loc[df['probabilty_res_MCMC'] != "First" ].index, df[str(intresting_col)][df['probabilty_res_MCMC'] !="First"])#ask Tomer !!!!
+    ax2.scatter(df.loc[df['probabilty_res_MCMC'] == "False" ].index, df[str(intresting_col)][df['probabilty_res_MCMC'] =="False"])#ask Tomer !!!!
     plt.title('{} number of all data'.format(str(intresting_col)))
     ax2.set(xlabel='peptide ', ylabel="{} of all data".format(str(intresting_col)))
 
@@ -61,15 +61,14 @@ def graph_for_intresting_col(df,intresting_col):
 # df4=simulation_process(my_peptide,"sb_supertypes")
 # df5=simulation_process(my_peptide,"wb_supertypes")
 # df6=simulation_process(my_peptide,"nb_supertypes")
-df7=simulation_process(my_peptide,"average")
-
-
+#df7=simulation_process(my_peptide,"average")
+#df8=simulation_process(my_peptide,"sum_of_binders")
+df9=simulation_process(my_peptide,"average_calculated_binders")
 df_dict={}
 #dict key is the expirment name and the value is the df
 #df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
 
-df_dict={"average":df7}
-
+df_dict={"average":df9}
 
 for expirement in df_dict.keys():
 

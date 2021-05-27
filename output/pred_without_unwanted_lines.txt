@@ -4,189 +4,189 @@
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*0101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0238420    3.035
-   1  HLA-A*0101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0850910    1.426 
+   1  HLA-A*0101      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0192770    3.401
+   1  HLA-A*0101      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0439560    2.167
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*0201      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000030   87.500
-   1  HLA-A*0201      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000240   61.875
+   1  HLA-A*0201      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000150   68.333
+   1  HLA-A*0201      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0002380   30.727
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*0203      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000030   87.500
-   1  HLA-A*0203      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000190   67.143
+   1  HLA-A*0203      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000200   66.429
+   1  HLA-A*0203      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0003370   29.387
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*0206      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000080   84.167
-   1  HLA-A*0206      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000580   61.250
+   1  HLA-A*0206      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000580   61.250
+   1  HLA-A*0206      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0003750   36.194
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*0301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000130   67.500
-   1  HLA-A*0301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001890   26.632
+   1  HLA-A*0301      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0007260   15.817
+   1  HLA-A*0301      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0085720    5.904
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*1101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000160   49.000
-   1  HLA-A*1101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0003510   16.419
+   1  HLA-A*1101      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0008530   12.118
+   1  HLA-A*1101      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0026430    8.279
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*2301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000080   58.333
-   1  HLA-A*2301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000440   35.750
+   1  HLA-A*2301      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0006530   13.451
+   1  HLA-A*2301      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0068120    4.893
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*2402      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000120   51.250
-   1  HLA-A*2402      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000460   34.250
+   1  HLA-A*2402      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0005450   13.964
+   1  HLA-A*2402      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0041540    6.026
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*2601      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0003480   22.763
-   1  HLA-A*2601      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0039020    7.699
+   1  HLA-A*2601      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0029310    8.857
+   1  HLA-A*2601      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0217290    2.981
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*3001      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000110   94.500
-   1  HLA-A*3001      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000710   75.455
+   1  HLA-A*3001      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0018920   25.564
+   1  HLA-A*3001      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0013490   29.644
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*3002      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0017770   23.129
-   1  HLA-A*3002      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0269100    4.640
+   1  HLA-A*3002      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.1055760    1.892 
+   1  HLA-A*3002      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.2279290    0.971 
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*3101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000100   76.667
-   1  HLA-A*3101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000810   45.200
+   1  HLA-A*3101      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0012510   16.856
+   1  HLA-A*3101      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0039410   10.876
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*3201      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000320   46.667
-   1  HLA-A*3201      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0004020   21.078
+   1  HLA-A*3201      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0013390   13.137
+   1  HLA-A*3201      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0260310    3.076
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*3301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000230   67.857
-   1  HLA-A*3301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001970   32.867
+   1  HLA-A*3301      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0014490   13.743
+   1  HLA-A*3301      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0021580   11.534
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*6801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001660   31.706
-   1  HLA-A*6801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0058880    9.933
+   1  HLA-A*6801      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0021770   13.828
+   1  HLA-A*6801      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0079860    8.944
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-A*6802      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000050   81.667
-   1  HLA-A*6802      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000800   47.500
+   1  HLA-A*6802      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000620   50.952
+   1  HLA-A*6802      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0000670   49.800
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*0702      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000140   70.000
-   1  HLA-B*0702      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000310   57.222
+   1  HLA-B*0702      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000210   63.571
+   1  HLA-B*0702      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0000180   66.000
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*0801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000220   81.429
-   1  HLA-B*0801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000860   59.828
+   1  HLA-B*0801      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0002840   40.550
+   1  HLA-B*0801      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0012820   22.200
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*1501      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001140   40.778
-   1  HLA-B*1501      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0064440    8.742
+   1  HLA-B*1501      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0173510    5.625
+   1  HLA-B*1501      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.1922740    1.378 
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*3501      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0004600   18.456
-   1  HLA-B*3501      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0559030    2.257
+   1  HLA-B*3501      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0107210    5.146
+   1  HLA-B*3501      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0145870    4.454
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*4001      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000280   38.500
-   1  HLA-B*4001      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0000120   50.000
+   1  HLA-B*4001      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0000270   39.000
+   1  HLA-B*4001      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0000680   28.429
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*4403      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0022930    7.344
-   1  HLA-B*4403      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001320   23.800
+   1  HLA-B*4403      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0002170   19.556
+   1  HLA-B*4403      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0011290    9.872
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*4402      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0022290    7.298
-   1  HLA-B*4402      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0001940   21.250
+   1  HLA-B*4402      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0001430   24.154
+   1  HLA-B*4402      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0009580   10.619
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*5101      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0000680   58.400
-   1  HLA-B*5101      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0016610   20.071
+   1  HLA-B*5101      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0023520   17.296
+   1  HLA-B*5101      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0015740   20.546
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*5301      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0003340   19.465
-   1  HLA-B*5301      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0103440    4.569
+   1  HLA-B*5301      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0073940    5.385
+   1  HLA-B*5301      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0064540    5.750
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*5701      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001630   49.500
-   1  HLA-B*5701      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0122680    8.059
+   1  HLA-B*5701      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0215990    6.202
+   1  HLA-B*5701      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0118310    8.206
 
 
 
 
  Pos         MHC        Peptide      Core Of Gp Gl Ip Il        Icore        Identity  Score_EL %Rank_EL BindLevel
-   1  HLA-B*5801      CDTINCERY CDTINCERY  0  0  0  0  0    CDTINCERY         PEPLIST 0.0001720   38.417
-   1  HLA-B*5801      CATINCERY CATINCERY  0  0  0  0  0    CATINCERY         PEPLIST 0.0145980    5.196
+   1  HLA-B*5801      CGFINYERY CGFINYERY  0  0  0  0  0    CGFINYERY         PEPLIST 0.0151460    5.096
+   1  HLA-B*5801      CMFINYERY CMFINYERY  0  0  0  0  0    CMFINYERY         PEPLIST 0.0062630    7.758
 
 
