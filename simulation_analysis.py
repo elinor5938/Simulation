@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
+
 from my_pipeline import *
 
 
@@ -42,72 +43,43 @@ def graph_for_intresting_col(df,intresting_col):
     plt.title("MCMC probabilities")
     ax1.scatter(df.loc[df['probabilty_res_MCMC'] == "True"].index, df[str(intresting_col)][df['probabilty_res_MCMC'] == "True"])
 
-    ax1.title.set_text('{} number of binders MCMC'.format(str(intresting_col)))
-    ax1.set(xlabel='Peptide ', ylabel='{} number of binders MCMC'.format(str(intresting_col)))
+    ax1.title.set_text('{} change in MCMC peptides that got True flag'.format(str(intresting_col)))
+    ax1.set(xlabel='Peptide ', ylabel=str(intresting_col))
 
-    ax2.scatter(df.loc[df['probabilty_res_MCMC'] == "False" ].index, df[str(intresting_col)][df['probabilty_res_MCMC'] =="False"])#ask Tomer !!!!
-    plt.title('{} number of all data'.format(str(intresting_col)))
-    ax2.set(xlabel='peptide ', ylabel="{} of all data".format(str(intresting_col)))
+    ax2.scatter(df.loc[df['probabilty_res_MCMC'] == "False" ].index, df[str(intresting_col)][df['probabilty_res_MCMC'] =="False"])
+    plt.title('{} change in MCMC peptides that got False flag'.format(str(intresting_col)))
+    ax2.set(xlabel='peptide ', ylabel=(intresting_col))
 
 
 #################################################### Analysis ###########################
 
-#
-# df=simulation_process(my_peptide,"av_of_total_binders")
-# df1=simulation_process(my_peptide,"min_rank")
-# df2=simulation_process(my_peptide,"median")
-#
-# df3=simulation_process(my_peptide,"total_super_binders")
-# df4=simulation_process(my_peptide,"sb_supertypes")
-# df5=simulation_process(my_peptide,"wb_supertypes")
-# df6=simulation_process(my_peptide,"nb_supertypes")
-#df7=simulation_process(my_peptide,"average")
-#df8=simulation_process(my_peptide,"sum_of_binders")
-df9=simulation_process(my_peptide,"average_calculated_binders")
-df_dict={}
+
+df8=simulation_process(my_peptide,"sum_of_all_hla")
+df9=simulation_process(my_peptide,"average")
+
 #dict key is the expirment name and the value is the df
 #df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
 
-df_dict={"average":df9}
+df_dict={"sum_of_all_hla":df8,"average":df9}
+y_parameters=["delta","WB","SB","NB","total_binders"]
 
-for expirement in df_dict.keys():
+def simulation_analysis (df_dict,y_parameters):
+    """ gets dictionary that it's keys are te parameters of experiment (the value that by it the delta function
+    is calculated) and the value it's their dfs.and sanity checks params that will be the y axis
+     and return graphs with sanity checks to examine my simulation"""
 
-    # # first expirement calculating how the av_of_total_binders changing during MCMC
-        expirment_name=expirement+" seed 42"
-        new_path=create_folder(params["main_output_folder"],expirment_name)
+
+    for experiment in  df_dict.keys():
+        expirment_name = " the col check is " + experiment + " the seed  is 86" # creationg a new folder which will contain the relevant graphs for every experiment
+        new_path = create_folder(params["main_output_folder"], expirment_name)
         print(new_path)
-        graph_for_intresting_col(df_dict[expirement],"delta")
-        plt.savefig(str(new_path)+" "+expirment_name+" delta.png",dpi=100)
-        plt.close()
+        for parameter  in y_parameters:
 
-    # c=delta_graph(i,"probabilty_res_MCMC","all_data_prob")
-        # total_bindes_graph(i,"total_binders")
-        graph_for_intresting_col(df_dict[expirement],"wb_supertypes")
-        plt.savefig(str(new_path)+" "+expirment_name+" wb_supertypes.png",dpi=100)
-        plt.close()
+        # # first expirement calculating how the av_of_total_binders changing during MCMC
+            graph_for_intresting_col(df_dict[experiment],parameter)
+            plt.savefig(str(new_path)+" "+expirment_name+" "+parameter,dpi=100)
+            plt.close()
 
-#graph_for_intresting_col(i,"wb_supertypes")
-        graph_for_intresting_col(df_dict[expirement],"sb_supertypes")
-        plt.savefig(str(new_path)+" "+expirment_name+" sb_supertypes.png",dpi=100)
-        plt.close()
-
-        graph_for_intresting_col(df_dict[expirement],"nb_supertypes")
-        plt.savefig(str(new_path)+" "+expirment_name+" nb_supertypes.png",dpi=100)
-        plt.close()
-
-# i["total_supertypes"]=i["sb_supertypes"]+i["wb_supertypes"]
-    # graph_for_intresting_col(i,"total_supertypes")
-
-
-        graph_for_intresting_col(df_dict[expirement],"total_binders")
-        plt.savefig(str(new_path)+" "+expirment_name+" total_super_binders.png",dpi=100)
-        plt.close()
-
-
-
-
-
-
-
-
-
+simulation_analysis(df_dict,y_parameters)
+for name in df_dict.keys(): #saving csvs
+    df_dict[name].to_csv(name+" seed is 86.csv")
