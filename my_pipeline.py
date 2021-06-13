@@ -144,26 +144,34 @@ my_peptide= "CDTINCERY"
 def simulation_process(peptide,column):
 
     """gets a peptide and column to calculate the simulation function and return df with all the result """
-    appended_data=[]
-    while len (appended_data)<500:# there i decide the stop condition for this process
-            df1=pd.DataFrame()
-            df1=send_pep_to_pred(peptide)
-            if simulation(df1,params["probability_function"],column)[1]=="True":
-                old_pep = df1.tail(1).index[0]
-                appended_data.append(simulation(df1,params["probability_function"],column)[0])
-                peptide=old_pep
-            if simulation(df1, params["probability_function"], column) [1]== "False":
-                new_pep=df1.head(1).index[0] #genearating new peptide
-                appended_data.append(simulation(df1,params["probability_function"],column)[0])
-                peptide=new_pep
+    appended_data=pd.DataFrame()
+    flag=False # this flag will turn to true when i reach to the desired amount of peptide that are good for my simulation
+    while flag ==False:
+        df1=pd.DataFrame()
+        df1=send_pep_to_pred(peptide)
+        #appended_data=df1.copy()
+        if simulation(df1,params["probability_function"],column)[1]=="True":
+            old_pep = df1.tail(1).index[0]
+            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0],ignore_index=True)
+            peptide=old_pep
+        if simulation(df1, params["probability_function"], column) [1]== "False":
+            new_pep=df1.head(1).index[0] #genearating new peptide
+            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0],ignore_index=True)
+            peptide=new_pep
 
-    appended_data = pd.concat(appended_data)
+        #if len(appended_data)>=2:
+        #appended_data .append(df1)
+        print(appended_data)
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==4:  # there i decide the stop condition for this process
+            flag=True
     return appended_data
 #
 # #
 # #
-# simulation_result.to_csv("simulation_result_sum_of_all_hla_skip_dup.csv")
-
-
-
-#     """get netMHCpan output and create df """
+res=simulation_process(my_peptide,"sum_of_all_hla")
+# df1 = send_pep_to_pred(my_peptide)
+# df2= send_pep_to_pred(my_peptide)
+# df1=df1.append(df2,ignore_index=True)
+#
+# df3=pd.DataFrame()
+# df3=df3.append(df1,ignore_index=True)
