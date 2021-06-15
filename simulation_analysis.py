@@ -63,14 +63,15 @@ def graph_for_intresting_col(df,intresting_col):
 
 #################################################### Analysis ###########################
 
-
+#
 df8=simulation_process(my_peptide,"sum_of_all_hla")
 df9=simulation_process(my_peptide,"average")
+df10=simulation_process(my_peptide,"median")
 
 #dict key is the expirment name and the value is the df
 #df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
 
-df_dict={"sum_of_all_hla":df8,"average":df9}
+df_dict={"sum_of_all_hla":df8,"average":df9,"median":df10}
 y_parameters=["delta","WB","SB","NB","total_binders"]
 
 def simulation_analysis (df_dict,y_parameters):

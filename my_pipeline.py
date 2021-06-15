@@ -56,6 +56,7 @@ def mutation_creator(peptide):
     params["seed_mutation"]
     index_number=random.choice(index)
     old_base=peptide[index_number] #the base was
+    params["seed_mutation"]
     random_amin_acid=random.choice(amino_acid_list) #new base
     if old_base==random_amin_acid :#preventing zero movement
         params["seed_mutation"]
@@ -69,9 +70,7 @@ def mutation_creator(peptide):
     return peptide,position,old_base,random_amin_acid
 
 
-my_peptide= "CDTINCERY"
-mutation_creator("my_peptide")
-peptide,index_number,old_base,random_amin_acid=mutation_creator(my_peptide)
+
 
 def send_pep_to_pred(peptide):
     input_file= os.path.join(main_path,"input","peptides_for_pred.txt")
@@ -82,29 +81,19 @@ def send_pep_to_pred(peptide):
     #utput_file = path_to_save + "pred_name.txt"
     output_file=os.path.join(path_to_save,"pred_name.txt")
 
-    all_peps_sent_to_prediction = []
     mutated_list=[]
     old_AA=["no change"]
     new_AA=["no change"]
     index_changed=["no change"]
     #open('/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt', 'w').close() # clearing pred input file
-    while len(mutated_list)<2:
 
-        mutated_list.append(peptide)
-        all_peps_sent_to_prediction.append(peptide)
-        new_peptide=mutation_creator(peptide)[0]
-        # old_AA.append(old_base)
-        # new_AA.append(new_base)
-        # index_changed.append(position)
+    mutated_list.append(peptide)
+    new_peptide, position, old_base, random_amin_acid =mutation_creator(peptide)
+    mutated_list.append(new_peptide)
+    old_AA.append(old_base)
+    new_AA.append(random_amin_acid)
+    index_changed.append(position)
 
-
-        # if new_peptide == peptide: # preventing zero movement
-        #     new_peptide = mutation_creator(peptide)[0]
-        #     peptide=new_peptide
-        # else:
-        #     peptide=new_peptide
-
-    # super types representatives:
 
     HLA_str = 'HLA-A01:01,HLA-A02:01,HLA-A03:01,HLA-A24:02,HLA-A26:01,HLA-B07:02,HLA-B08:01,HLA-B27:05,HLA-B39:01,' \
               'HLA-B40:01,HLA-B58:01,HLA-B15:01'
@@ -128,9 +117,9 @@ def send_pep_to_pred(peptide):
     print ('Starting script2 ,analyzing ..')
     import pred_analysis
     full_df=pred_analysis.df_creator(output_file)
-    # full_df["position_changed"]=index_changed
-    # full_df["former_AA"]=old_AA
-    # full_df["new_AA"]=new_AA
+    full_df["position_changed"]=index_changed
+    full_df["former_AA"]=old_AA
+    full_df["new_AA"]=new_AA
     return full_df
 
 
@@ -144,13 +133,10 @@ def simulation(df,function,col_contains_data):
     """gets df,function, and the column that contains the data with the score im interested to check ,
     insert the data of each row into the column and return df and flag considering the simulation result"""
     delta=np.diff(df[col_contains_data]) #Calculating the delta between two values in the columns
-    if delta==0:
-       delta=df[col_contains_data][0]
-    Delta.append(delta)
-    try:
-        prob_res =params["probability_function"](delta)
-    except OverflowError:
-        prob_res = float(0.001)
+
+    Delta.append(float(delta[0]))
+
+    prob_res =params["probability_function"](float(delta[0]))
 
     params["seed"]
     random_toss=random.random()
@@ -182,25 +168,26 @@ def simulation_process(peptide,column):
         df1=pd.DataFrame()
         df1=send_pep_to_pred(peptide)
         #appended_data=df1.copy()
-        if simulation(df1,params["probability_function"],column)[1]=="True":
+        the_simulation=simulation(df1,params["probability_function"],column) #saving the simulation result + flag
+        if the_simulation[1]=="True":
             old_pep = df1.tail(1).index[0]
-            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0])
+            appended_data=appended_data.append(the_simulation[0])
             peptide=old_pep
-        if simulation(df1, params["probability_function"], column) [1]== "False":
+        if the_simulation[1]== "False":
             new_pep=df1.head(1).index[0] #genearating new peptide
-            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0])
+            appended_data=appended_data.append(the_simulation[0])
             peptide=new_pep
 
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==2:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==1000:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
 # #
 # #
-res=simulation_process(my_peptide,"average")
+#res=simulation_process(my_peptide,"average")
 # df1 = send_pep_to_pred(my_peptide)
 # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)
