@@ -181,7 +181,7 @@ def simulation_process(peptide,column):
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==1000:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==2:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #

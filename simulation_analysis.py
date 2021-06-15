@@ -14,10 +14,19 @@ import os
 
 from my_pipeline import *
 
+path_flag= 1 #0=pc, 1=linux
+if path_flag==0:
+    main_path = '/mnt/c//Users/Elinor/PycharmProjects/pythonProject1'
+    path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
+    params["main_output_folder"] = "/mnt/c/Users/Elinor/Desktop/תואר שני/simultation outputs/"  # outoutfolder
 
+elif path_flag==1:
+    main_path='/home/sacharen/Desktop/elinor/project_elinor/'
+    path_to_tool ="/home/sacharen/netMHCpan-4.1/"
+    params["main_output_folder"] = os.path.join(main_path, "simultation outputs", "")
 
 ####################### params ####################################################
-params["main_output_folder"] = "/mnt/c/Users/Elinor/Desktop/תואר שני/simultation outputs/"  #outoutfolder
+params["main_output_folder"]
 
 #####################functions###################################################
 def create_folder(main_folder_path,new_folder_name):

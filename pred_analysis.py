@@ -16,7 +16,14 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
+path_flag= 1 #0=pc, 1=linux
+if path_flag==0:
+    main_path = '/mnt/c//Users/Elinor/PycharmProjects/pythonProject1'
+    path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
 
+elif path_flag==1:
+    main_path='/home/sacharen/Desktop/elinor/project_elinor/'
+    path_to_tool ="/home/sacharen/netMHCpan-4.1/"
 
 def df_creator(path):
 #     """get netMHCpan output and create df """
@@ -25,7 +32,7 @@ def df_creator(path):
     # #reading whitespace delimiter file
 
    #filtering the coloumns of MHC,binding level,and Peptide
-    mutant_df1= pd.read_csv("/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/output/pred_name.txt", delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
+    mutant_df1= pd.read_csv(main_path+"pred_name.txt", delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
     supertypes_list = ['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01',
            'HLA-B*27:05', 'HLA-B*39:01','HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']
     mutant_df=mutant_df1[mutant_df1.MHC.isin(supertypes_list)]
@@ -52,7 +59,6 @@ def df_creator(path):
         data_hla_as_col[hla].apply(lambda x: float(x))
     data_hla_as_col = data_hla_as_col.astype(float)
 
-    [data_hla_as_col.columns]
 
 
     def binding_feedback_func(x):
@@ -83,7 +89,9 @@ def df_creator(path):
     ## adding column of interst
     data_hla_as_col["average"]= data_hla_as_col.loc[:,list_of_hla].mean(axis=1)
     data_hla_as_col["min_rank"]= data_hla_as_col.loc[:,list_of_hla].min(axis=1)
-    #data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
+    data_hla_as_col["median"] = data_hla_as_col.loc[:, list_of_hla].median(axis=1)
+
+#data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
     #data_hla_as_col["av_of_total_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].mean(axis=1)
     #data_hla_as_col["sum_of_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].sum(axis=1)
     data_hla_as_col["sum_of_all_hla"]=data_hla_as_col.loc[:,list_of_hla].sum(axis=1)
