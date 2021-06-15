@@ -5,7 +5,4 @@
     <orderEntry type="jdk" jdkName="3.6 @ Ubuntu 18.04" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PyDocumentationSettings">
-    <option name="renderExternalDocumentation" value="true" />
-  </component>
 </module>
