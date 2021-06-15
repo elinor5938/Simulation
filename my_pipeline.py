@@ -32,14 +32,20 @@ import runpy
 
 
 
+path_flag= 1 #0=pc, 1=linux
+if path_flag==0:
+    main_path = '/mnt/c//Users/Elinor/PycharmProjects/pythonProject1'
+    path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
 
-
-
+elif path_flag==1:
+    main_path='/home/sacharen/Desktop/elinor/project_elinor/'
+    path_to_tool ="/home/sacharen/netMHCpan-4.1/"
 
 #################################################### Params ###########################
 params={}
 params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary probability function
 params["seed"]=random.seed(86)
+params["seed_mutation"]=random.seed(86) #seed for mutation creator
 
 
 ################################################## functions #########################
@@ -47,33 +53,56 @@ params["seed"]=random.seed(86)
 def mutation_creator(peptide):
     amino_acid_list=["A","R","N","D","C","E","Q","G","H","I","L","K","M","F","P","S","T","W","Y","V"]
     index=range(9)
+    params["seed_mutation"]
     index_number=random.choice(index)
     old_base=peptide[index_number] #the base was
     random_amin_acid=random.choice(amino_acid_list) #new base
+    if old_base==random_amin_acid :#preventing zero movement
+        params["seed_mutation"]
+        random_amin_acid = random.choice(amino_acid_list)  # new base
+    # #else:
+    # continue
     peptide ="".join((peptide[:index_number],random_amin_acid,peptide[index_number+1:]))
-    return peptide
+    position=index_number+1 #becuase index start from zero in phyton
+
+
+    return peptide,position,old_base,random_amin_acid
 
 
 my_peptide= "CDTINCERY"
-
+mutation_creator("my_peptide")
+peptide,index_number,old_base,random_amin_acid=mutation_creator(my_peptide)
 
 def send_pep_to_pred(peptide):
-    input_file='/mnt/c//Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt'
-    path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
-    path_to_save = "/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/output/"
-    output_file = path_to_save + "pred_name.txt"
+    input_file= os.path.join(main_path,"input","peptides_for_pred.txt")
+    #path_to_tool = "/home/sacharen/netMHCpan-4.1/"
+
+    path_to_save = os.path.join(main_path,"output",'')
+
+    #utput_file = path_to_save + "pred_name.txt"
+    output_file=os.path.join(path_to_save,"pred_name.txt")
+
     all_peps_sent_to_prediction = []
     mutated_list=[]
+    old_AA=["no change"]
+    new_AA=["no change"]
+    index_changed=["no change"]
     #open('/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt', 'w').close() # clearing pred input file
     while len(mutated_list)<2:
+
         mutated_list.append(peptide)
         all_peps_sent_to_prediction.append(peptide)
-        new_peptide=mutation_creator(peptide)
-        if new_peptide == peptide: # preventing zero movement
-            new_peptide = mutation_creator(peptide)
-            peptide=new_peptide
-        else:
-            peptide=new_peptide
+        new_peptide=mutation_creator(peptide)[0]
+        # old_AA.append(old_base)
+        # new_AA.append(new_base)
+        # index_changed.append(position)
+
+
+        # if new_peptide == peptide: # preventing zero movement
+        #     new_peptide = mutation_creator(peptide)[0]
+        #     peptide=new_peptide
+        # else:
+        #     peptide=new_peptide
 
     # super types representatives:
 
@@ -83,10 +112,9 @@ def send_pep_to_pred(peptide):
     #HLA_first_str = HLA_str[0:999]
     #HLA_second_str = HLA_str[1000:]
     if len(mutated_list)==2:
-        with open('/mnt/c//Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt','w+') as file_object:
+        with open(input_file,'w+') as file_object:
             for peptide in mutated_list:
                     file_object.write(peptide+'\n')
-
             command = path_to_tool + "netMHCpan " + "-p " + input_file + " -l " + "9" + " -a " + HLA_str + " >" + output_file
             file_object.truncate() # clearing pred input file
             file_object.close()
@@ -99,7 +127,11 @@ def send_pep_to_pred(peptide):
     print ('Script1 ended')
     print ('Starting script2 ,analyzing ..')
     import pred_analysis
-    return pred_analysis.df_creator("/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/output/pred_name.txt")
+    full_df=pred_analysis.df_creator(output_file)
+    # full_df["position_changed"]=index_changed
+    # full_df["former_AA"]=old_AA
+    # full_df["new_AA"]=new_AA
+    return full_df
 
 
 
@@ -152,23 +184,23 @@ def simulation_process(peptide,column):
         #appended_data=df1.copy()
         if simulation(df1,params["probability_function"],column)[1]=="True":
             old_pep = df1.tail(1).index[0]
-            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0],ignore_index=True)
+            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0])
             peptide=old_pep
         if simulation(df1, params["probability_function"], column) [1]== "False":
             new_pep=df1.head(1).index[0] #genearating new peptide
-            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0],ignore_index=True)
+            appended_data=appended_data.append(simulation(df1,params["probability_function"],column)[0])
             peptide=new_pep
 
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==4:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==2:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
 # #
 # #
-res=simulation_process(my_peptide,"sum_of_all_hla")
+res=simulation_process(my_peptide,"average")
 # df1 = send_pep_to_pred(my_peptide)
 # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)
