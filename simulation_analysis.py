@@ -94,3 +94,4 @@ def simulation_analysis (df_dict,y_parameters):
 simulation_analysis(df_dict,y_parameters)
 for name in df_dict.keys(): #saving csvs
     df_dict[name].to_csv(name+" seed is 86.csv")
+#
