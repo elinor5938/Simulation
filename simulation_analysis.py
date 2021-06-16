@@ -14,7 +14,7 @@ import os
 
 from my_pipeline import *
 
-path_flag= 0 #0=pc, 1=linux
+path_flag= 1 #0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -63,14 +63,14 @@ def graph_for_intresting_col(df,intresting_col):
 #################################################### Analysis ###########################
 
 #
-# df8=simulation_process(my_peptide,"sum_of_all_hla")
-# df9=simulation_process(my_peptide,"average")
-# df10=simulation_process(my_peptide,"median"
+df8=simulation_process(my_peptide,"sum_of_all_hla")
+df9=simulation_process(my_peptide,"average")
+df10=simulation_process(my_peptide,"median")
 
 #########################checking why it didn't work on linux#####################################
-df8=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/sum_of_all_hla seed is 86.csv")
-df9=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/average seed is 86.csv")
-df10=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/median seed is 86.csv")
+# df8=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/sum_of_all_hla seed is 86.csv")
+# df9=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/average seed is 86.csv")
+# df10=pd.read_csv("//132.72.92.166/Elinor/with_Liel/simultation outputs/median seed is 86.csv")
 
 #dict key is the expirment name and the value is the df
 #df_dict={"av_of_total_binders":df,"min_rank":df1,"median":df2,"total_super_binders":df3,"sb_super_types":df4,"wb_supertypes":df5,"nb_supertypes":df6,"average":df7}
@@ -96,6 +96,6 @@ def simulation_analysis (df_dict,y_parameters):
             plt.close()
 
 simulation_analysis(df_dict,y_parameters)
-# for name in df_dict.keys(): #saving csvs
-#     df_dict[name].to_csv(name+" seed is 86.csv")
+for name in df_dict.keys(): #saving csvs
+    df_dict[name].to_csv(name+" seed is 86.csv")
 # #
