@@ -32,9 +32,9 @@ import runpy
 
 
 
-path_flag= 1 #0=pc, 1=linux
+path_flag= 0#0=pc, 1=linux
 if path_flag==0:
-    main_path = '/mnt/c//Users/Elinor/PycharmProjects/pythonProject1'
+    main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
 
 elif path_flag==1:
@@ -71,16 +71,15 @@ def mutation_creator(peptide):
 
 
 
-
 def send_pep_to_pred(peptide):
     input_file= os.path.join(main_path,"input","peptides_for_pred.txt")
     #path_to_tool = "/home/sacharen/netMHCpan-4.1/"
 
     path_to_save = os.path.join(main_path,"output",'')
-
+    print(path_to_save)
     #utput_file = path_to_save + "pred_name.txt"
     output_file=os.path.join(path_to_save,"pred_name.txt")
-
+    print(output_file)
     mutated_list=[]
     old_AA=["no change"]
     new_AA=["no change"]
@@ -116,6 +115,7 @@ def send_pep_to_pred(peptide):
     print ('Script1 ended')
     print ('Starting script2 ,analyzing ..')
     import pred_analysis
+    print(output_file)
     full_df=pred_analysis.df_creator(output_file)
     full_df["position_changed"]=index_changed
     full_df["former_AA"]=old_AA
@@ -123,7 +123,7 @@ def send_pep_to_pred(peptide):
     return full_df
 
 
-
+print(send_pep_to_pred("CDTINCERY"))
 
 
 def simulation(df,function,col_contains_data):
@@ -158,6 +158,10 @@ def simulation(df,function,col_contains_data):
 #
 my_peptide= "CDTINCERY"
 
+# df8=df8[0:2]
+# df8.head(1).index[0]
+# df8.set_index(["Peptide"], inplace=True)
+
 
 def simulation_process(peptide,column):
 
@@ -165,29 +169,33 @@ def simulation_process(peptide,column):
     appended_data=pd.DataFrame()
     flag=False # this flag will turn to true when i reach to the desired amount of peptide that are good for my simulation
     while flag ==False:
-        df1=pd.DataFrame()
+        #df1=pd.DataFrame()
         df1=send_pep_to_pred(peptide)
-        #appended_data=df1.copy()
+        print(df1)
         the_simulation=simulation(df1,params["probability_function"],column) #saving the simulation result + flag
+        print(the_simulation[0])
+
         if the_simulation[1]=="True":
-            old_pep = df1.tail(1).index[0]
+            old_pep = the_simulation[0].tail(1).index[0]
+            print("old pep"+old_pep)
             appended_data=appended_data.append(the_simulation[0])
             peptide=old_pep
-        if the_simulation[1]== "False":
-            new_pep=df1.head(1).index[0] #genearating new peptide
+        elif the_simulation[1]== "False":
+            new_pep=the_simulation[0].head(1).index[0] #genearating new peptide
+            print("new pep"+new_pep)
             appended_data=appended_data.append(the_simulation[0])
             peptide=new_pep
 
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==2:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==5:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
 # #
 # #
-#res=simulation_process(my_peptide,"average")
+res=simulation_process(my_peptide,"average")
 # df1 = send_pep_to_pred(my_peptide)
 # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)

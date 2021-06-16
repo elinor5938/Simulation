@@ -16,10 +16,11 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
-path_flag= 1 #0=pc, 1=linux
+path_flag= 0 #0=pc, 1=linux
 if path_flag==0:
-    main_path = '/mnt/c//Users/Elinor/PycharmProjects/pythonProject1'
+    main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
+
 
 elif path_flag==1:
     main_path='/home/sacharen/Desktop/elinor/project_elinor/'
@@ -32,7 +33,7 @@ def df_creator(path):
     # #reading whitespace delimiter file
 
    #filtering the coloumns of MHC,binding level,and Peptide
-    mutant_df1= pd.read_csv(main_path+"pred_name.txt", delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
+    mutant_df1= pd.read_csv(os.path.join(main_path,"output","pred_name.txt"), delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
     supertypes_list = ['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01',
            'HLA-B*27:05', 'HLA-B*39:01','HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']
     mutant_df=mutant_df1[mutant_df1.MHC.isin(supertypes_list)]
@@ -44,13 +45,12 @@ def df_creator(path):
     mutant_df.set_index(["Peptide"],inplace=True)
 
 
-    ##create df with hla information as columns
-    list_of_hla=[]
-    for hla in mutant_df["MHC"]:
-        list_of_hla.append(hla)
-    list_of_hla=list(set(list_of_hla))
 
+##create df with hla information as columns
 
+    list_of_hla=mutant_df.MHC.unique().tolist()
+
+    # b = mutant_df.T
     data_hla_as_col=pd.DataFrame()
     for hla in list_of_hla:
         data_hla_as_col[hla]=mutant_df["%Rank_EL"][mutant_df["MHC"]==hla]
