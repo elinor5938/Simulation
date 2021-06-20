@@ -32,7 +32,7 @@ import runpy
 
 
 
-path_flag=1#0=pc, 1=linux
+path_flag= 0#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -44,6 +44,7 @@ elif path_flag==1:
 #################################################### Params ###########################
 params={}
 params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary probability function
+#params["probability_function"]=lambda x :(x+0.15)*10/12
 params["seed"]=random.seed(86)
 params["seed_mutation"]=random.seed(86) #seed for mutation creator
 
@@ -189,13 +190,13 @@ def simulation_process(peptide,column):
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==1000:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==15:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
 # #
 # #
-#res=simulation_process(my_peptide,"average")
+res=simulation_process(my_peptide,"average")
 # df1 = send_pep_to_pred(my_peptide)
 # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)
