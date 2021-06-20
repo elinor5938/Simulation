@@ -37,6 +37,7 @@ def df_creator(path):
     supertypes_list = ['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01',
            'HLA-B*27:05', 'HLA-B*39:01','HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']
     mutant_df=mutant_df1[mutant_df1.MHC.isin(supertypes_list)]
+    #mutant_df.info()
 
 
 #  df = pd.read_csv("YOUR_CSV_HERE.csv", names=my_cols, engine='python')
@@ -54,46 +55,50 @@ def df_creator(path):
     data_hla_as_col=pd.DataFrame()
     for hla in list_of_hla:
         data_hla_as_col[hla]=mutant_df["%Rank_EL"][mutant_df["MHC"]==hla]
-
-    for hla in list_of_hla: #making sure that all the data is float type
-        data_hla_as_col[hla].apply(lambda x: float(x))
     data_hla_as_col = data_hla_as_col.astype(float)
+    data_hla_as_col.info()
 
 
+    data_hla_as_col.info()
 
-    def binding_feedback_func(x):
-        """get values and returns the feedback regarding the binding"""
-        if x <= 0.5:
-            return 'SB',
-        elif 0.5<x<=2:
-            return 'WB'
-        else:
-            return 'NB'
+    data_hla_as_col["WB"] = data_hla_as_col[data_hla_as_col[0.5 < data_hla_as_col.loc[:, list_of_hla]]<=2].count(axis=1)
+    data_hla_as_col["SB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=0.5].count(axis=1)
+    data_hla_as_col["NB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<2].count(axis=1)
+#df9["WB1"]=df9[df9[0.5<df9.loc[:,['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01', 'HLA-B*27:05', 'HLA-B*39:01', 'HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']]]<2]].count(axis=1)
+
+    # def binding_feedback_func(x):
+    #         """get values and returns the feedback regarding the binding"""
+    #         if x <= 0.5:
+    #             return 'SB'
+    #         elif 0.5<x<=2:
+    #             return 'WB'
+    #         else:
+    #             return 'NB'
+    #     #
     #
+    # # # %%
+    # #adding the cumber of each peptide is sb,nb,wb as columns
+    # nb=[]
+    # wb=[]
+    # sb=[]
+    # for ind, row in data_hla_as_col.iterrows():
+    #     tmp=row.loc[list_of_hla].apply(binding_feedback_func).str
+    #     nb.append(tmp.contains('NB', regex=False).sum())
+    #     sb.append(tmp.contains('SB', regex=False).sum())
+    #     wb.append(tmp.contains('WB', regex=False).sum())
+    #
+    #     data_hla_as_col["NB"]=nb
+    #     data_hla_as_col["SB"]=sb
+    #     data_hla_as_col["WB"]=wb
 
-    # # %%
-    #adding the cumber of each peptide is sb,nb,wb as columns
-    nb=[]
-    wb=[]
-    sb=[]
-    for ind, row in data_hla_as_col.iterrows():
-        tmp=row.loc[list_of_hla].apply(binding_feedback_func).str
-        nb.append(tmp.contains('NB', regex=False).sum())
-        sb.append(tmp.contains('SB', regex=False).sum())
-        wb.append(tmp.contains('WB', regex=False).sum())
-
-    data_hla_as_col["NB"]=nb
-    data_hla_as_col["SB"]=sb
-    data_hla_as_col["WB"]=wb
-
-    ## adding column of interst
+        ## adding column of interst
     data_hla_as_col["average"]= data_hla_as_col.loc[:,list_of_hla].mean(axis=1)
     data_hla_as_col["min_rank"]= data_hla_as_col.loc[:,list_of_hla].min(axis=1)
     data_hla_as_col["median"] = data_hla_as_col.loc[:, list_of_hla].median(axis=1)
 
-#data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
-    #data_hla_as_col["av_of_total_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].mean(axis=1)
-    #data_hla_as_col["sum_of_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].sum(axis=1)
+    #data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
+        #data_hla_as_col["av_of_total_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].mean(axis=1)
+        #data_hla_as_col["sum_of_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].sum(axis=1)
     data_hla_as_col["sum_of_all_hla"]=data_hla_as_col.loc[:,list_of_hla].sum(axis=1)
 
     hla_freq={'HLA-A*2601': 0.028900876, 'HLA-A*0101': 0.059088435, 'HLA-B*4001': 0.071398528, 'HLA-B*4403': 0.029337539,
@@ -105,7 +110,35 @@ def df_creator(path):
     'HLA-A*3001': 0.021923096, 'HLA-A*6802': 0.017568169, 'HLA-A*6801': 0.023160292, 'HLA-B*2705': 0.017304938,
     'HLA-B*3901': 0.013952759}
 
-    # for hla in hla_freq.keys():
+
+    # data_hla_as_col["id5"]=data_hla_as_col.shape[0]*[[]]
+    # [(1<=data_hla_as_col.loc[x,list_hla]) & (data_hla_as_col.loc[x,list_hla]<= 60)]
+    #list_hla[(1<=data_hla_as_col.loc[x,list_hla]) & (data_hla_as_col.loc[x,list_hla]<= 60)]
+    #data_hla_as_col.set_index("Peptide",inplace=True)
+
+
+# data_hla_as_col["id5"]=data_hla_as_col.shape[0]*[[]]
+# [(1<=data_hla_as_col.loc[x,list_of_hla]) & (data_hla_as_col.loc[x,list_of_hla]<= 60)]
+# list_of_hla[(1<=data_hla_as_col.loc[x,list_of_hla]) & (data_hla_as_col.loc[x,list_of_hla]<= 60)]
+# data_hla_as_col.set_index("Peptide",inplace=True)
+    wb_id = []
+    sb_id = []
+    nb_id = []
+    list_of_hla=pd.Index(list_of_hla)
+
+    for x in range(data_hla_as_col.shape[0]):
+        wb_id.append(list_of_hla[(0.5 < data_hla_as_col.iloc[x][list_of_hla]) & (data_hla_as_col.iloc[x][list_of_hla] <= 2)].tolist())  #
+        sb_id.append(list_of_hla[data_hla_as_col.iloc[x][list_of_hla] <= 0.5].tolist())
+        nb_id.append(list_of_hla[data_hla_as_col.iloc[x][list_of_hla] > 2].tolist())
+    data_hla_as_col["wb_id"] = wb_id
+    data_hla_as_col["sb_id"] = sb_id
+    data_hla_as_col["nb_id"] = nb_id
+
+
+
+
+
+# for hla in hla_freq.keys():
     #     if hla in data_hla_as_col.columns:
     #         data_hla_as_col["average"] = data_hla_as_col[hla] * hla_freq[hla]
     #         for ind,row in data_hla_as_col.iterrows():

@@ -44,6 +44,7 @@ elif path_flag==1:
 #################################################### Params ###########################
 params={}
 params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary probability function
+#params["probability_function"]=lambda x :(x+0.15)*10/12
 params["seed"]=random.seed(86)
 params["seed_mutation"]=random.seed(86) #seed for mutation creator
 
@@ -189,7 +190,7 @@ def simulation_process(peptide,column):
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==5:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==15:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
