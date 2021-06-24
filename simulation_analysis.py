@@ -14,7 +14,7 @@ import os
 params={}
 from my_pipeline import *
 
-path_flag= 0 #0=pc, 1=linux
+path_flag= 1 #0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -121,6 +121,6 @@ def simulation_analysis (df_dict,y_parameters):
            plt.close()
 
 simulation_analysis(df_dict,y_parameters)
-# for name in df_dict.keys(): #saving csvs
-#     df_dict[name].to_csv(name+" seed is 86.csv")
-# #
+for name in df_dict.keys(): #saving csvs
+    df_dict[name].to_csv(name+" seed is 86.csv")
+#
