@@ -14,17 +14,6 @@ import os
 params={}
 from my_pipeline import *
 
-path_flag= 1 #0=pc, 1=linux
-if path_flag==0:
-    main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
-    path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
-   # params["main_output_folder"] = "/mnt/c/Users/Elinor/Desktop/תואר שני/simultation outputs/with_liel/"  # outoutfolder
-    params["main_output_folder"] = os.path.join("/mnt/c/Users/Elinor/Desktop/תואר שני/", "simultation outputs1", "","with_liel","")
-elif path_flag==1:
-    main_path='/home/sacharen/Desktop/elinor/project_elinor/'
-    path_to_tool ="/home/sacharen/netMHCpan-4.1/"
-    params["main_output_folder"] = os.path.join(main_path, "simultation outputs", "")
-
 ####################### params ####################################################
 params["main_output_folder"]
 

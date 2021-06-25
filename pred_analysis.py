@@ -16,7 +16,7 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
-path_flag= 1#0=pc, 1=linux
+path_flag= 0#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -56,10 +56,10 @@ def df_creator(path):
     for hla in list_of_hla:
         data_hla_as_col[hla]=mutant_df["%Rank_EL"][mutant_df["MHC"]==hla]
     data_hla_as_col = data_hla_as_col.astype(float)
-    data_hla_as_col.info()
+    #data_hla_as_col.info()
 
 
-    data_hla_as_col.info()
+   # data_hla_as_col.info()
 
     data_hla_as_col["WB"] = data_hla_as_col[data_hla_as_col[0.5 < data_hla_as_col.loc[:, list_of_hla]]<=2].count(axis=1)
     data_hla_as_col["SB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=0.5].count(axis=1)
