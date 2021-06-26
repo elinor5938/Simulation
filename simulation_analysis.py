@@ -60,12 +60,12 @@ def create_graph(df, x, y):
     ##    ax1.scatter([i for i in range(len(df.loc[df['probabilty_res_MCMC'] == "True"]))], df[str(intresting_col)][d#f##['probabilty_res_MCMC'] == "True"])
     plt.title("MCMC probabilities")
 
-    ax1.plot(df[x][df['probabilty_res_MCMC'] == "True"].astype(float), df[y][df['probabilty_res_MCMC'] == "True"].astype(float))
+    ax1.scatter(df[x][df['probabilty_res_MCMC'] == "True"].astype(float), df[y][df['probabilty_res_MCMC'] == "True"].astype(float))
 
     plt.title("association between {} to  {} in MCMC peptides that got True flag".format(x, y))
     ax1.set(xlabel=x, ylabel=y)
 
-    ax2.plot(df[x][df['probabilty_res_MCMC'] == "False"].astype(float), df[y][df['probabilty_res_MCMC'] == "False"].astype(float))
+    ax2.scatter(df[x][df['probabilty_res_MCMC'] == "False"].astype(float), df[y][df['probabilty_res_MCMC'] == "False"].astype(float))
     plt.title("association between {} to  {} in MCMC peptides that got False flag".format(x, y))
     ax2.set(xlabel=x, ylabel=y)
 
@@ -97,6 +97,8 @@ def simulation_analysis (df_dict,y_parameters):
         create_graph(df_dict[experiment],"delta","all_data_prob")
         plt.savefig(str(new_path) + " " + "delta association to probability" , dpi=100)
         create_graph(df_dict[experiment],"delta","all_data_prob")
+        create_graph(df_dict[experiment],experiment,"all_data_prob")
+
 
         plt.close()
 
