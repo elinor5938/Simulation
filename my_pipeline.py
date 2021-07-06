@@ -33,17 +33,19 @@ params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary pro
 #params["probability_function"]=lambda x :(x+0.15)*10/12
 params["seed"]=random.seed(86)
 params["seed_mutation"]=random.seed(86) #seed for mutation creator
+params["number of peptide for pred"]=500
 
+print(params["seed_mutation"])
 
 ################################################fixing changes pc and lynux#############
-path_flag= 1#0=pc, 1=linux
+path_flag=0#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
-   # params["main_output_folder"] = "/mnt/c/Users/Elinor/Desktop/תואר שני/simultation outputs/with_liel/"  # outoutfolder
-    params["main_output_folder"] = os.path.join("/mnt/c/Users/Elinor/Desktop/תואר שני/", "simultation outputs1", "","with_liel","")
+    params["main_output_folder"] = os.path.join("/mnt/c/Users/Elinor/Desktop/תואר שני/", "simultation outputs_no_sim_26")
+
 elif path_flag==1:
-    main_path='/home/perr/Desktop/elinor/project_elinor/'
+    main_path='/home/perr/Desktop/sim/project_elinor/'
     path_to_tool ="/home/perr/netMHCpan-4.1/"
     params["main_output_folder"] = os.path.join(main_path, "simultation outputs", "")
 
@@ -58,23 +60,31 @@ def mutation_creator(peptide):
     params["seed_mutation"]
     index_number=random.choice(index)
     old_base=peptide[index_number] #the base was
-    params["seed_mutation"]
     random_amin_acid=random.choice(amino_acid_list) #new base
-    if old_base==random_amin_acid :#preventing zero movement
-        params["seed_mutation"]
+    while old_base==random_amin_acid :#preventing zero movement
         random_amin_acid = random.choice(amino_acid_list)  # new base
     # #else:
     # continue
     peptide ="".join((peptide[:index_number],random_amin_acid,peptide[index_number+1:]))
     position=index_number+1 #becuase index start from zero in phyton
-
-
     return peptide,position,old_base,random_amin_acid
 
+print(mutation_creator("CDTINCERY"))
+
+amino_acid_list = ["A", "R", "N", "D", "C", "E", "Q", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"]
+index = range(9)
+random.seed(45)
+index_number = random.choice(index)
+params["seed_mutation"]
+random_amin_acid = random.choice(amino_acid_list)  # new base
+print(index_number)
 
 
-def send_pep_to_pred(peptide):
+
+
+def send_pep_to_pred(peptide,desired_number_of_peeptide_for_pred=2):
     input_file= os.path.join(main_path,"input","peptides_for_pred.txt")
+
     #path_to_tool = "/home/sacharen/netMHCpan-4.1/"
     path_to_save = os.path.join(main_path,"output",'')
     print(path_to_save)
@@ -86,7 +96,6 @@ def send_pep_to_pred(peptide):
     new_AA=["no change"]
     index_changed=["no change"]
     #open('/mnt/c/Users/Elinor/PycharmProjects/pythonProject1/input/peptides_for_pred.txt', 'w').close() # clearing pred input file
-    desired_number_of_peeptide_for_pred=2
     mutated_list.append(peptide)
     while len(mutated_list)!=desired_number_of_peeptide_for_pred:
         new_peptide, position, old_base, random_amin_acid =mutation_creator(peptide)
@@ -122,7 +131,7 @@ def send_pep_to_pred(peptide):
     full_df["new_AA"]=new_AA
     return full_df
 
-no_simulation=send_pep_to_pred("CDTINCERY")
+no_simulation=send_pep_to_pred("CDTINCERY",params["number of peptide for pred"])
 
 
 def simulation(df,function,col_contains_data):
@@ -137,7 +146,7 @@ def simulation(df,function,col_contains_data):
 
     prob_res =params["probability_function"](float(delta[0]))
 
-    params["seed"]
+
     random_toss=random.random()
     all_data_prob.append(prob_res)
 

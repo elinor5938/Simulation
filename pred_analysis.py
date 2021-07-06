@@ -16,7 +16,7 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
-path_flag= 1#0=pc, 1=linux
+path_flag= 0#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -63,7 +63,13 @@ def df_creator(path):
 
     data_hla_as_col["WB"] = data_hla_as_col[data_hla_as_col[0.5 < data_hla_as_col.loc[:, list_of_hla]]<=2].count(axis=1)
     data_hla_as_col["SB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=0.5].count(axis=1)
-    data_hla_as_col["NB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<2].count(axis=1)
+    data_hla_as_col["NB"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]>2].count(axis=1)
+    data_hla_as_col["WB_delta"]=pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["WB"])),ignore_index=True ).tolist()
+    data_hla_as_col["NB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["NB"])), ignore_index=True).tolist()
+    data_hla_as_col["SB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["SB"])), ignore_index=True).tolist()
+
+
+
 #df9["WB1"]=df9[df9[0.5<df9.loc[:,['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01', 'HLA-B*27:05', 'HLA-B*39:01', 'HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']]]<2]].count(axis=1)
 
     # def binding_feedback_func(x):
