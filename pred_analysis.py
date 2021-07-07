@@ -16,14 +16,14 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
-path_flag= 0#0=pc, 1=linux
+path_flag=1 #0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
 
 
 elif path_flag==1:
-    main_path='/home/perr/Desktop/elinor/project_elinor/'
+    main_path='/home/perr/Desktop/sim/project_elinor/'
     path_to_tool ="/home/perr/netMHCpan-4.1/"
 
 def df_creator(path):

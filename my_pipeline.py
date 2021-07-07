@@ -33,12 +33,11 @@ params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary pro
 #params["probability_function"]=lambda x :(x+0.15)*10/12
 params["seed"]=random.seed(86)
 params["seed_mutation"]=random.seed(86) #seed for mutation creator
-params["number of peptide for pred"]=500
+params["number of peptide for pred"]=5000
 
-print(params["seed_mutation"])
 
 ################################################fixing changes pc and lynux#############
-path_flag=0#0=pc, 1=linux
+path_flag=1#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -47,7 +46,7 @@ if path_flag==0:
 elif path_flag==1:
     main_path='/home/perr/Desktop/sim/project_elinor/'
     path_to_tool ="/home/perr/netMHCpan-4.1/"
-    params["main_output_folder"] = os.path.join(main_path, "simultation outputs", "")
+    params["main_output_folder"] = os.path.join(main_path, "5000 pep sum sim july seventh", "")
 
 
 
@@ -69,15 +68,7 @@ def mutation_creator(peptide):
     position=index_number+1 #becuase index start from zero in phyton
     return peptide,position,old_base,random_amin_acid
 
-print(mutation_creator("CDTINCERY"))
 
-amino_acid_list = ["A", "R", "N", "D", "C", "E", "Q", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"]
-index = range(9)
-random.seed(45)
-index_number = random.choice(index)
-params["seed_mutation"]
-random_amin_acid = random.choice(amino_acid_list)  # new base
-print(index_number)
 
 
 
@@ -87,10 +78,8 @@ def send_pep_to_pred(peptide,desired_number_of_peeptide_for_pred=2):
 
     #path_to_tool = "/home/sacharen/netMHCpan-4.1/"
     path_to_save = os.path.join(main_path,"output",'')
-    print(path_to_save)
     #utput_file = path_to_save + "pred_name.txt"
     output_file=os.path.join(path_to_save,"pred_name.txt")
-    print(output_file)
     mutated_list=[]
     old_AA=["no change"]
     new_AA=["no change"]
@@ -131,7 +120,6 @@ def send_pep_to_pred(peptide,desired_number_of_peeptide_for_pred=2):
     full_df["new_AA"]=new_AA
     return full_df
 
-no_simulation=send_pep_to_pred("CDTINCERY",params["number of peptide for pred"])
 
 
 def simulation(df,function,col_contains_data):
@@ -142,10 +130,10 @@ def simulation(df,function,col_contains_data):
     insert the data of each row into the column and return df and flag considering the simulation result"""
     delta=np.diff(df[col_contains_data]) #Calculating the delta between two values in the columns
 
-    Delta.append(float(delta[0]))
+    Delta.append((round(float(delta[0])),5))
+    prob_res =round(params["probability_function"](float(delta[0])),5)
 
-    prob_res =params["probability_function"](float(delta[0]))
-
+    print("!!!!!!!!!!!!!!!!!!!prib is" +str(prob_res))
 
     random_toss=random.random()
     all_data_prob.append(prob_res)
@@ -180,6 +168,7 @@ def simulation_process(peptide,column):
         #df1=pd.DataFrame()
         df1=send_pep_to_pred(peptide)
         print(df1)
+        print(params["probability_function"])
         the_simulation=simulation(df1,params["probability_function"],column) #saving the simulation result + flag
         print(the_simulation[0])
 
@@ -197,7 +186,7 @@ def simulation_process(peptide,column):
         #if len(appended_data)>=2:
         #appended_data .append(df1)
         print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==500:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==4:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
