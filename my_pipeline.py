@@ -37,11 +37,11 @@ params["number of peptide for pred"]=5000
 
 
 ################################################fixing changes pc and lynux#############
-path_flag=1#0=pc, 1=linux
+path_flag=0#0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
-    params["main_output_folder"] = os.path.join("/mnt/c/Users/Elinor/Desktop/תואר שני/", "simultation outputs_no_sim_26")
+    params["main_output_folder"] = os.path.join("/mnt/c/Users/Elinor/Desktop/תואר שני/", "simultation outputs_no_sim_26","")
 
 elif path_flag==1:
     main_path='/home/perr/Desktop/sim/project_elinor/'
@@ -130,11 +130,12 @@ def simulation(df,function,col_contains_data):
     insert the data of each row into the column and return df and flag considering the simulation result"""
     delta=np.diff(df[col_contains_data]) #Calculating the delta between two values in the columns
 
-    Delta.append((round(float(delta[0])),5))
-    prob_res =round(params["probability_function"](float(delta[0])),5)
+    Delta.append(float(delta[0]))
+    try:
+        prob_res =params["probability_function"](float(delta[0]))
 
-    print("!!!!!!!!!!!!!!!!!!!prib is" +str(prob_res))
-
+    except OverflowError:
+        prob_res =0.00001
     random_toss=random.random()
     all_data_prob.append(prob_res)
 
