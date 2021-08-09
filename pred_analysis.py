@@ -16,7 +16,7 @@ import pandas as pd
 # from matplotlib.colors import ListedColormap, BoundaryNorm
 import os
 
-path_flag=0 #0=pc, 1=linux
+path_flag=1 #0=pc, 1=linux
 if path_flag==0:
     main_path = '/mnt/c//Users/Elinor/PycharmProjects/project_elinor/'
     path_to_tool = "/home/elinorpe/netMHCpan-4.1/"
@@ -25,6 +25,10 @@ if path_flag==0:
 elif path_flag==1:
     main_path='/home/perr/Desktop/sim/project_elinor/'
     path_to_tool ="/home/perr/netMHCpan-4.1/"
+
+
+
+
 
 def df_creator(path):
 #     """get netMHCpan output and create df """
@@ -68,9 +72,24 @@ def df_creator(path):
     data_hla_as_col["NB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["NB"])), ignore_index=True).tolist()
     data_hla_as_col["SB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["SB"])), ignore_index=True).tolist()
 
+    # def scale_function(number):
 
+    e = math.e
 
-#df9["WB1"]=df9[df9[0.5<df9.loc[:,['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01', 'HLA-B*27:05', 'HLA-B*39:01', 'HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']]]<2]].count(axis=1)
+    scale_function =lambda  number :( 1 / (e ** (number - 0.75 * e)) )
+
+#  col_list = list(cut_off_df.columns)
+#  col_list.remove('Peptide')
+#  cut_off_df[col_list] = cut_off_df[col_list].apply(scale_function)
+
+  # multiplying all the Alleles with their frequency
+
+    # for col in data_hla_as_col.columns:
+    #         (print(col))
+    #   if 'HLA-' in col:
+    #       print( data_hla_as_col.loc[:,col])
+    data_hla_as_col['binding sum score after scale function'] = data_hla_as_col.loc[:,list_of_hla].apply(scale_function).sum(axis=1)
+    #df9["WB1"]=df9[df9[0.5<df9.loc[:,['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01', 'HLA-B*27:05', 'HLA-B*39:01', 'HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']]]<2]].count(axis=1)
 
     # def binding_feedback_func(x):
     #         """get values and returns the feedback regarding the binding"""

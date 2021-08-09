@@ -46,7 +46,7 @@ def graph_for_intresting_col(df,intresting_col):
     ax1.title.set_text('{} change in MCMC peptides that got True flag'.format(str(intresting_col)))
     ax1.set(xlabel='Peptide ', ylabel=str(intresting_col))
 
-    ax2.plot(df.loc[df['probabilty_res_MCMC'] == "False" ].index, df[str(intresting_col)][df['probabilty_res_MCMC'] =="False"])
+    ax2.plot(df.loc[df['probabilty_res_MCMC'] == "False"].index, df[str(intresting_col)][df['probabilty_res_MCMC'] =="False"])
     plt.title('{} change in MCMC peptides that got False flag'.format(str(intresting_col)))
     ax2.set(xlabel='peptide ', ylabel=(intresting_col))
 
@@ -106,7 +106,8 @@ def create_graph(df, x, y):
 #################################################### Analysis ###########################
 
 # if there is simulatation
-df8=simulation_process(my_peptide,"sum_of_all_hla")
+df19=simulation_process(my_peptide,"binding sum score after scale function")
+#df8=simulation_process(my_peptide,"sum_of_all_hla")
 # df9=simulation_process(my_peptide,"average")
 # df10=simulation_process(my_peptide,"median")
 
@@ -165,7 +166,7 @@ def simulation_analysis (df_dict,y_parameters):
     is calculated) and the value it's their dfs.and sanity checks params that will be the y axis
      and return graphs with sanity checks to examine my simulation"""
     for experiment in  df_dict.keys():
-        expirment_name = " the col check is " + experiment + " the seed  is 86" # creationg a new folder which will contain the relevant graphs for every experiment
+        expirment_name = " the col check is " + experiment + " the seed  is 42" # creationg a new folder which will contain the relevant graphs for every experiment
         new_path = create_folder(params["main_output_folder"], expirment_name)
         create_graph(df_dict[experiment],"delta","all_data_prob")
         plt.savefig(str(new_path) + " " + "delta association to probability" , dpi=100)
@@ -182,5 +183,6 @@ def simulation_analysis (df_dict,y_parameters):
            plt.close()
 simulation_analysis(df_dict,y_parameters)
 for name in df_dict.keys(): #saving csvs
-    df_dict[name].to_csv(name+"  5000 pep of seed is 86.csv")
-#
+    df_dict[name].to_csv(name+"  5000 pep of seed is 42.csv")
+
+df8.to_csv('to_work_with_july10.csv')
