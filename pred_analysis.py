@@ -33,7 +33,7 @@ def df_creator(path):
     # #reading whitespace delimiter file
 
    #filtering the coloumns of MHC,binding level,and Peptide
-    mutant_df1= pd.read_csv(os.path.join(main_path,"output","pred_name.txt"), delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
+    mutant_df1= pd.read_csv(os.path.join(main_path,"output",path), delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
     supertypes_list = ['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01',
            'HLA-B*27:05', 'HLA-B*39:01','HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']
     mutant_df=mutant_df1[mutant_df1.MHC.isin(supertypes_list)]
@@ -68,6 +68,25 @@ def df_creator(path):
     data_hla_as_col["NB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["NB"])), ignore_index=True).tolist()
     data_hla_as_col["SB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["SB"])), ignore_index=True).tolist()
 
+
+    def scale_function(number):
+        e = math.e
+        return 1 / (e ** (number - 0.75 * e))
+
+
+
+  # #  col_list = list(cut_off_df.columns)
+  # #  col_list.remove('Peptide')
+  # #  cut_off_df[col_list] = cut_off_df[col_list].apply(scale_function)
+  #   data_hla_as_col['binding sum score after scale function'] = data_hla_as_col.drop('Peptide', axis=1).sum(axis=1)
+  #
+  #   # multiplying all the Alleles with their frequency
+    for col in data_hla_as_col.columns:
+        if 'HLA-' in col:
+            data_hla_as_col['binding sum score after scale function'] = data_hla_as_col[col].apply(scale_function).sum(axis=1)
+
+    # df_f[mode + 'binding sum score after scale function with allele frequency'] = cut_off_df.drop('Peptide', axis=1).sum(
+    #     axis=1)
 
 
 #df9["WB1"]=df9[df9[0.5<df9.loc[:,['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01', 'HLA-B*27:05', 'HLA-B*39:01', 'HLA-B*40:01', 'HLA-B*58:01', 'HLA-B*15:01']]]<2]].count(axis=1)
@@ -266,3 +285,5 @@ def df_creator(path):
     return data_hla_as_col
 #
 
+df=df_creator("prediction.txt")
+df.to_csv('/mnt/c//Users/Elinor/PycharmProjects/project_elinor/epitope_df_unique.csv')

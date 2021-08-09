@@ -181,6 +181,6 @@ def simulation_analysis (df_dict,y_parameters):
            plt.savefig(str(new_path)+" "+expirment_name+" "+parameter,dpi=100)
            plt.close()
 simulation_analysis(df_dict,y_parameters)
-for name in df_dict.keys(): #saving csvs
-    df_dict[name].to_csv(name+"  5000 pep of seed is 86.csv")
+# for name in df_dict.keys(): #saving csvs
+#     df_dict[name].to_csv(name+"  5000 pep of seed is 86.csv")
 #

@@ -68,9 +68,20 @@ def mutation_creator(peptide):
     position=index_number+1 #becuase index start from zero in phyton
     return peptide,position,old_base,random_amin_acid
 
+def send_to_prediction_as_is(peptides_file):
+    """gets a file with a list of peptides and returns df of their prediction without mutating them"""
+    input_file= peptides_file
+    path_to_save = os.path.join(main_path,"output",'')
+    output_file=os.path.join(path_to_save,"prediction.txt")
+    HLA_str = 'HLA-A01:01,HLA-A02:01,HLA-A03:01,HLA-A24:02,HLA-A26:01,HLA-B07:02,HLA-B08:01,HLA-B27:05,HLA-B39:01,' \
+              'HLA-B40:01,HLA-B58:01,HLA-B15:01'
+    command = path_to_tool + "netMHCpan " + "-p " + input_file + " -l " + "9" + " -a " + HLA_str + " >" + output_file
+    raw_output = subprocess.check_output('{}'.format(command), shell=True)
+    import pred_analysis
+    full_df=pred_analysis.df_creator(output_file)
+    return full_df
 
-
-
+#epitope_df=send_to_prediction_as_is("/mnt/c//Users/Elinor/PycharmProjects/project_elinor/input/to_prediction.txt")
 
 
 def send_pep_to_pred(peptide,desired_number_of_peeptide_for_pred=2):
@@ -193,11 +204,12 @@ def simulation_process(peptide,column):
 #
 # #
 # #
-#res=simulation_process(my_peptide,"average")
-# df1 = send_pep_to_pred(my_peptide)
+res_2=simulation_process(my_peptide,"average")
+df1 = send_pep_to_pred(my_peptide)
 # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)
 #
 # df3=pd.DataFrame()
 # df3=df3.append(df1,ignore_index=True)
 ###
+# print(df1)
