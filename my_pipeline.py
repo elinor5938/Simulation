@@ -5,6 +5,7 @@ import random
 import pandas as pd
 import math
 import numpy as np
+from line_profiler_pycharm import profile
 import runpy
 
 
@@ -29,11 +30,12 @@ import runpy
 
 #################################################### Params ###########################
 params={}
-params["probability_function"]=lambda x :1.0/(1+math.exp(x) +0.1) #arbitrary probability function
+params["probability_function"]=lambda x :1.0/(1+math.exp(x*0.01) +0.1) #arbitrary probability function
 #params["probability_function"]=lambda x :(x+0.15)*10/12
 params["seed"]=random.seed(86)
 params["seed_mutation"]=random.seed(86) #seed for mutation creator
 params["number of peptide for pred"]=5000
+params["output_path"]="/home/perr/Desktop/sim/project_elinor/output/test_flush/" #remaber to change folder name
 
 
 ################################################fixing changes pc and lynux#############
@@ -49,10 +51,8 @@ elif path_flag==1:
     params["main_output_folder"] = os.path.join(main_path, "5000 pep sum sim july seventh", "")
 
 
-
-
 ################################################## functions #########################
-
+@profile
 def mutation_creator(peptide):
     amino_acid_list=["A","R","N","D","C","E","Q","G","H","I","L","K","M","F","P","S","T","W","Y","V"]
     index=range(9)
@@ -68,6 +68,7 @@ def mutation_creator(peptide):
     position=index_number+1 #becuase index start from zero in phyton
     return peptide,position,old_base,random_amin_acid
 
+
 def send_to_prediction_as_is(peptides_file):
     """gets a file with a list of peptides and returns df of their prediction without mutating them"""
     input_file= peptides_file
@@ -80,7 +81,6 @@ def send_to_prediction_as_is(peptides_file):
     import pred_analysis
     full_df=pred_analysis.df_creator(output_file)
     return full_df
-
 
 
 
@@ -161,6 +161,7 @@ def simulation(df,function,col_contains_data):
     df["probabilty_res_MCMC"]=probabilty_res_MCMC
     df["all_data_prob"] =all_data_prob
     df["delta"]=Delta
+
     return df, flag
 
 #
@@ -171,42 +172,49 @@ my_peptide= "CDTINCERY"
 # df8.set_index(["Peptide"], inplace=True)
 
 
-def simulation_process(peptide,column):
-
+def simulation_process(peptide, column):
     """gets a peptide and column to calculate the simulation function and return df with all the result """
     appended_data=pd.DataFrame()
     flag=False # this flag will turn to true when i reach to the desired amount of peptide that are good for my simulation
     while flag ==False:
         #df1=pd.DataFrame()
         df1=send_pep_to_pred(peptide)
-        print(df1)
-        print(params["probability_function"])
         the_simulation=simulation(df1,params["probability_function"],column) #saving the simulation result + flag
-        print(the_simulation[0])
-
         if the_simulation[1]=="True":
             old_pep = the_simulation[0].tail(1).index[0]
-            print("old pep"+old_pep)
+        #    print("old  pep"+old_pep)
             appended_data=appended_data.append(the_simulation[0])
             peptide=old_pep
         elif the_simulation[1]== "False":
             new_pep=the_simulation[0].head(1).index[0] #genearating new peptide
-            print("new pep"+new_pep)
+           # print("new pep"+new_pep)
             appended_data=appended_data.append(the_simulation[0])
             peptide=new_pep
 
         #if len(appended_data)>=2:
         #appended_data .append(df1)
-        print(appended_data)
-        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==4:  # there i decide the stop condition for this process
+        if len(appended_data.loc[appended_data['probabilty_res_MCMC'] == "True"])==1:  # there i decide the stop condition for this process
             flag=True
     return appended_data
 #
 # #
 # #
+peptide_list=["AEVTQHGSY","ASPRIGDQL","CEDVPSGKL","DEFKPIVQY","ETACLGKSY","FDHTLMSIV","GDPEVTFMW","HPALVFDIT","ILYVSCNPA","KLINSFVGR"]
 #res_2=simulation_process(my_peptide,"average")
-#df1 = send_pep_to_pred(my_peptide)
-# df2= send_pep_to_pred(my_peptide)
+
+with open(os.path.join( params["output_path"],"event_log.txt"), 'w+') as file_object:
+    for peptide in range(len(peptide_list)):
+        if os.getcwd != params["output_path"]:
+            os.chdir(params["output_path"])
+        file_object.write("starting working on " + peptide_list[peptide] + " pep number "+ str(peptide) + '\n')
+        df_name=str(peptide_list[peptide])
+        df_name= simulation_process(peptide_list[peptide],"sum_of_all_hla")
+        file_object.write("done working on " + peptide_list[peptide] +" pep number "+ str(peptide) + '\n')
+        file_object.flush()
+        #print(str(peptide)+".csv")
+        df_name.to_csv(str(peptide_list[peptide])+".csv")
+    file_object.close()
+    # df2= send_pep_to_pred(my_peptide)
 # df1=df1.append(df2,ignore_index=True)
 #
 # df3=pd.DataFrame()

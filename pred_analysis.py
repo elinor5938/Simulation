@@ -31,7 +31,6 @@ def df_creator(path):
 
     #
     # #reading whitespace delimiter file
-
    #filtering the coloumns of MHC,binding level,and Peptide
     mutant_df1= pd.read_csv(os.path.join(main_path,"output",path), delim_whitespace=True, skip_blank_lines=True, error_bad_lines=False, warn_bad_lines=False,skiprows=47,usecols=[1,2,12])
     supertypes_list = ['HLA-A*01:01', 'HLA-A*02:01', 'HLA-A*03:01', 'HLA-A*24:02', 'HLA-A*26:01', 'HLA-B*07:02', 'HLA-B*08:01',
@@ -68,6 +67,10 @@ def df_creator(path):
     data_hla_as_col["NB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["NB"])), ignore_index=True).tolist()
     data_hla_as_col["SB_delta"] = pd.Series("0").append(pd.Series(np.diff(data_hla_as_col["SB"])), ignore_index=True).tolist()
 
+            #df.columns = [str(col) + '_x' for col in df.columns]
+
+
+
     # def scale_function(number):
 
     e = math.e
@@ -84,9 +87,7 @@ def df_creator(path):
   #   data_hla_as_col['binding sum score after scale function'] = data_hla_as_col.drop('Peptide', axis=1).sum(axis=1)
   #
   #   # multiplying all the Alleles with their frequency
-    for col in data_hla_as_col.columns:
-        if 'HLA-' in col:
-            data_hla_as_col['binding sum score after scale function'] = data_hla_as_col[col].apply(scale_function).sum(axis=1)
+
 
     # df_f[mode + 'binding sum score after scale function with allele frequency'] = cut_off_df.drop('Peptide', axis=1).sum(
     #     axis=1)
@@ -133,13 +134,46 @@ def df_creator(path):
 
         ## adding column of interst
     data_hla_as_col["average"]= data_hla_as_col.loc[:,list_of_hla].mean(axis=1)
+
     data_hla_as_col["min_rank"]= data_hla_as_col.loc[:,list_of_hla].min(axis=1)
     data_hla_as_col["median"] = data_hla_as_col.loc[:, list_of_hla].median(axis=1)
+
+
 
     #data_hla_as_col["median"]=data_hla_as_col.loc[:,list_of_hla].median(axis=1)
         #data_hla_as_col["av_of_total_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].mean(axis=1)
         #data_hla_as_col["sum_of_binders"]=data_hla_as_col[data_hla_as_col.loc[:,list_of_hla]<=float(2)].sum(axis=1)
     data_hla_as_col["sum_of_all_hla"]=data_hla_as_col.loc[:,list_of_hla].sum(axis=1)
+
+
+    data_hla_as_col.reset_index(inplace=True)
+
+#
+    for col in data_hla_as_col.columns:
+        if 'HLA-' in col:
+            former_hla_list=["start"]
+            former_hla_list.append(data_hla_as_col.at[0, col])
+            data_hla_as_col[str(col)+"_former"] =former_hla_list
+        former_sum_list=["start"]
+        former_sum_list.append(data_hla_as_col.at[0, "sum_of_all_hla"])
+        data_hla_as_col['sum_former'] = former_sum_list
+        former_median_list=["start"]
+        former_median_list.append(data_hla_as_col.at[0, "median"])
+        former_min_rank=["start"]
+        former_min_rank.append(data_hla_as_col.at[0, "min_rank"])
+        data_hla_as_col['min_rank_former']=former_min_rank
+        # if data_hla_as_col.at[0, "Peptide"] == data_hla_as_col.at[1, "Peptide"]:
+        #    data_hla_as_col['sum_former']="same_peptide"
+        # else:
+        #     data_hla_as_col['sum_former'] = c
+        # if data_hla_as_col.at[0, "Peptide"] == data_hla_as_col.at[1, "Peptide"]:
+        #     data_hla_as_col['min_rank_former'] = "same_peptide"
+        # else:
+        #     data_hla_as_col['min_rank_former'] = data_hla_as_col.at[0, "min_rank"]
+        # if data_hla_as_col.at[0, "Peptide"] == data_hla_as_col.at[1, "Peptide"]:
+        #     data_hla_as_col['median_former']=="same_peptide"
+        # else:
+        #     data_hla_as_col['median_former'] = data_hla_as_col.at[0, "median"]
 
     hla_freq={'HLA-A*2601': 0.028900876, 'HLA-A*0101': 0.059088435, 'HLA-B*4001': 0.071398528, 'HLA-B*4403': 0.029337539,
     'HLA-B*0801': 0.039642482, 'HLA-B*5801': 0.035699264, 'HLA-A*0206': 0.0288019, 'HLA-B*4402': 0.02807571,
@@ -154,7 +188,6 @@ def df_creator(path):
     # data_hla_as_col["id5"]=data_hla_as_col.shape[0]*[[]]
     # [(1<=data_hla_as_col.loc[x,list_hla]) & (data_hla_as_col.loc[x,list_hla]<= 60)]
     #list_hla[(1<=data_hla_as_col.loc[x,list_hla]) & (data_hla_as_col.loc[x,list_hla]<= 60)]
-    #data_hla_as_col.set_index("Peptide",inplace=True)
 
 
 # data_hla_as_col["id5"]=data_hla_as_col.shape[0]*[[]]
@@ -201,6 +234,9 @@ def df_creator(path):
     #
     # # %%
     data_hla_as_col["total_binders"]= data_hla_as_col["SB"] + data_hla_as_col["WB"]
+
+
+    data_hla_as_col.set_index("Peptide", inplace=True)
 
 #ther is no need for this dictionary when we use representatives
     #supertype_classification={"A01":["HLA-A*0101","HLA-A*2601","HLA-A*3002","HLA-A*3201"],"A02":["HLA-A*0201","HLA-A*0203" ,"HLA-A*0206"],"A03":["HLA-A*1101" ,"HLA-A*3101","HLA-A*0301","HLA-A*3301"],"B07":["HLA-B*0702","HLA-B*3501","HLA-B*5101","HLA-B*5301"],"B08": ["HLA-B*0801"],"B44":["HLA-B*4403", "HLA-B*4402" ,"HLA-B*4001"],"B58":["HLA-B*5801","HLA-B*5701"],"B62":["HLA-B*1501"],"A24":["HLA-A*2301" ,"HLA-A*2402"],"A01A03":[ "HLA-A*6801","HLA-A*6802"],"A03A02":["HLA-A*3001"]}
